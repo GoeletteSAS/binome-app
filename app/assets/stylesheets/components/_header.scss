@@ -1,0 +1,39 @@
+header {
+  width: 100%;
+}
+
+nav {
+  width: 1000px;
+  margin-left: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+nav a {
+  text-decoration: none;
+  text-overflow: none;
+  color: $green;
+}
+
+.ban {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.round_green {
+  border-radius: 50%;
+  background-color: #7CE993;
+  width: 70px;
+  height: 70px;
+  margin: 10px;
+}
+
+.align {
+  display: flex;
+  align-items: center;
+}

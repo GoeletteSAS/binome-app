@@ -1,17 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Bienvenue</h1>
+<p>Veuillez cliquer sur le bouton de votre choix !</p>
 
-<%= link_to "Je cherche à partager mon job", new_search_path %>
-<%= link_to "Je cherche à rejoindre quelqu'un sur son poste", new_search_path %>
+<%= link_to "Je cherche à partager mon job", new_search_path, class: "btn btn-secondary" %>
+<%= link_to "Je cherche à rejoindre quelqu'un sur son poste", new_search_path, class: "btn btn-secondary" %>
 
 
 <% if user_signed_in? %>
   <%#= link_to "Se déconnecter", destroy_user_session_path, data: { turbo_method: :delete } %>
   <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "btn btn-primary"  %>
 <% else %>
-  <%= link_to "Créer un compte", new_user_registration_path %>
-  <%= link_to "Se connecter", new_user_session_path %>
+
 <% end %>
-
-
-

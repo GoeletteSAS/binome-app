@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :experiences, only: [:create, :update, :destroy]
   resources :searches, only: [:new, :create, :update, :destroy]
 
-  get '/dashboard/:id', to: 'pages#dashboard', as: :dashboard
+  get '/dashboard', to: 'pages#dashboard', as: :dashboard
 
   # Defines the root path route ("/")
 end

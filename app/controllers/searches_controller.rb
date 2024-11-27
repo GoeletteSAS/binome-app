@@ -1,4 +1,5 @@
 class SearchesController < ApplicationController
+  LINES_OF_WORK = %w `ventes production achats maintenance logistique marketing`
 
   def new
     @search = Search.new
@@ -9,7 +10,7 @@ class SearchesController < ApplicationController
     @search.save
     redirect_to # à définir
   end
-  
+
   def update
     @search = Search.find(params[:id])
     @search.update(search_params)

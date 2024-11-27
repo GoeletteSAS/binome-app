@@ -38,7 +38,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_27_152528) do
     t.boolean "is_offering"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "experience"
     t.index ["experience_id"], name: "index_searches_on_experience_id"
     t.index ["user_id"], name: "index_searches_on_user_id"
   end

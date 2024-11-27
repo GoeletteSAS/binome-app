@@ -4,10 +4,18 @@
 <div class="d-flex align-items-center justify-content-center vh-100">
   <div class="text-center">
     <div class="d-flex gap-4">
-      <%= link_to "Je cherche à partager mon job", new_search_path,
-                  class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
-      <%= link_to "Je cherche à rejoindre quelqu'un sur son poste", new_search_path,
-                  class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
+      <% if user_signed_in? %>
+        <%= link_to "Je cherche à partager mon job", new_search_path,
+                    class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
+        <%= link_to "Je cherche à rejoindre quelqu'un sur son poste", new_search_path,
+              class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
+      <% else %>
+        <%= link_to "Je cherche à partager mon job", new_user_registration_path,
+                    class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
+        <%= link_to "Je cherche à rejoindre quelqu'un sur son poste", new_user_registration_path,
+              class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
+      <% end %>
+      
     </div>
   </div>
 </div>

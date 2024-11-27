@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-  LINES_OF_WORK = %w `ventes production achats maintenance logistique marketing`
+
 
   def new
     @search = Search.new

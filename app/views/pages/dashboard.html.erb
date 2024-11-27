@@ -1,6 +1,6 @@
 <div>
   <h1>My dashboard</h1>
-  <%# Hello <%#= current_user.username %>
+  <p> Hello <%= current_user.username %> </p>
   <h2>En route vers le temps partiel </h2>
 </div>
 
@@ -14,7 +14,13 @@
   <li class="nav-item">
     <a class="nav-link" href="#">Messages</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Mon profil</a>
+    <li class="nav-item">
+      <a class="nav-link" link_to edit_user_registration_path >Mon profil</a>
   </li>
+  <%# <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Mon profil</a>
+  </li> %>
 </ul>
+
+
+  <%= link_to edit_user_registration_path, :action => 'go' do %>Edit my profil<% end %>

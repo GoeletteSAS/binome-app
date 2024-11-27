@@ -1,4 +1,5 @@
 class SearchesController < ApplicationController
+
   LINES_OF_WORK = [
     "ventes",
     "production",

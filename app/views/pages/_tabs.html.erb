@@ -1,0 +1,21 @@
+<div>
+  <h1>My dashboard</h1>
+  <p> Hello <%= current_user.username %> </p>
+  <h2>En route vers le temps partiel </h2>
+</div>
+
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to "Mes recherches", edit_user_registration_path, class: "nav-link active" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Favoris", edit_user_registration_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Messages", edit_user_registration_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Mon profil", edit_user_registration_path, class: "nav-link" %>
+  </li>
+</ul>

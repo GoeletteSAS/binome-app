@@ -4,18 +4,20 @@
   <h2>En route vers le temps partiel </h2>
 </div>
 
+<%#= action_name %>
+<%#= controller_name %>
 
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <%= link_to "Mes recherches", edit_user_registration_path, class: "nav-link active" %>
+    <%= link_to "Mes recherches", dashboard_searches_path, class: "nav-link #{'active' if action_name == 'dashboard_searches'}" %>
   </li>
   <li class="nav-item">
-    <%= link_to "Favoris", edit_user_registration_path, class: "nav-link" %>
+    <%= link_to "Favoris", dashboard_favorites_path, class: "nav-link #{'active' if action_name == 'dashboard_favorites'}" %>
   </li>
   <li class="nav-item">
-    <%= link_to "Messages", edit_user_registration_path, class: "nav-link" %>
+    <%= link_to "Messages", dashboard_searches_path, class: "nav-link #{'active' if action_name == 'dashboard_messages'}" %>
   </li>
   <li class="nav-item">
-    <%= link_to "Mon profil", edit_user_registration_path, class: "nav-link" %>
+    <%= link_to "Mon profil", dashboard_profile_path, class: "nav-link #{'active' if action_name == 'dashboard_profile'}" %>
   </li>
 </ul>

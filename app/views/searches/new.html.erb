@@ -11,7 +11,7 @@
           <%= f.input :address, label: "Où souhaitez-vous chercher ?", input_html: { class: 'form-control' }, collection: @departments, required: true %>
         </div>
       <div class="text-center mt-4">
-        <%= f.submit 'Lancer ma recherche', id: 'bright', class: 'btn btn-primary btn-lg px-4' method: 'POST'%>
+        <%= f.submit 'Lancer ma recherche', id: 'bright', class: 'btn btn-primary btn-lg px-4' %>
       </div>
 
       <%= f.input :is_offering, as: :hidden %>

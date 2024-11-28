@@ -4,8 +4,8 @@
     </div>
     <div style="width:435px; margin-left: 10px;">
       <h1>Partager mon poste</h1>
-      <p><%= @search[:line_of_work] %></p>
-      <p><%= @search[:adress] %></p>
+      <p><%= current_user.current_experience.line_of_work %></p>
+      <p><%= current_user.current_experience.address %></p>
     </div>
     <p style="width:197px; font-size: 80px; height:100%; align-items:center;">40%</p>
     <span>
@@ -21,7 +21,6 @@
     <div class="cards">
       <h1>Aucun résultat trouvé</h1>
     </div>
-
   <%else%>
     <%= @search.each do |search| %>
       <div class="cards">

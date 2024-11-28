@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :experiences
   has_many :searches
+  has_one_attached :photo, dependent: :destroy
 
   def current_experience
     experiences.find_by(is_current: true)

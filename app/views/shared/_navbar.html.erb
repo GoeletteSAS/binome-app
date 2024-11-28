@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg d-flex align-items-center">
+<nav class="navbar navbar-expand-lg d-flex align-items-center nav-background">
   <div class="container-fluid">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,24 +8,25 @@
 
     <div class="collapse navbar-collapse" id="navbarContent">
       <a class="navbar-brand m-0" href="<%= root_path %>">
-        <%= image_tag("", alt: "Logo", width: "150px") %>
+        <%= image_tag("https://www.freeiconspng.com/uploads/logo-design-icon-symbol-4.png", alt: "Logo", width: "30px") %>
       </a>
       <ul class="navbar-nav mx-auto mb-lg-0 gap-4">
         <li class="nav-item">
-          <a class="nav-link" href="#"><h4>Services</h4></a>
+          <a class="nav-link" href="#">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><h4>FAQ</h4></a>
+          <a class="nav-link" href="#">FAQ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><h4>Blog</h4></a>
+          <a class="nav-link" href="#">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= root_path %>"><h4>Prendre rdv</h4></a>
+          <a class="nav-link" href="#">Prendre RDV</a>
         </li>
       </ul>
 
       <% if user_signed_in? %>
+        <%= link_to "Mon tableau de bord", dashboard_searches_path, class: "btn btn-primary btn-md me-3 px-3 py-1 rounded-pill" %>
         <%#= link_to "Se déconnecter", destroy_user_session_path, data: { turbo_method: :delete} %>
         <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "btn btn-primary btn-md px-3 py-1 rounded-pill" %>
       <% else %>

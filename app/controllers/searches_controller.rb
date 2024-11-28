@@ -1,5 +1,23 @@
 class SearchesController < ApplicationController
 
+  def show
+    @search = Search.find(params[:id])
+    # Installer geocoder
+    # Configurer geocoder pour fonctionner avec Mapbox
+    # Regarder le cours sur geocoder pour mettre la bonne méthode (geocoded_by) dans le model qui contient l'adresse (experience)
+    # Essayer de joindre les utilisateurs et les experiences (.joins)
+    @matching_users = User.joins(:experiences)
+                       .where(experiences: {
+                         line_of_work: @search.line_of_work,
+                         field: @search.field
+                       })
+
+    # Essayer de faire un .where sur les experiences qui ont la même adresse que la search (utiliser .near)
+    # et .where sur les experiences qui ont le même line_of_work que la search
+    # et .where sur les experiences qui ont le même field que la search
+  end
+
+
   LINES_OF_WORK = [
     "ventes",
     "production",
@@ -165,7 +183,7 @@ class SearchesController < ApplicationController
   # else
     @search.user = current_user
     if @search.save
-      redirect_to dashboard_path
+      redirect_to dashboard_searches_path
     else
       render 'new', status: :unprocessable_entity
     end

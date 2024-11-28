@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard_searches
-    @user = current_user
+    @searches = current_user.searches
   end
 
   def dashboard_profile

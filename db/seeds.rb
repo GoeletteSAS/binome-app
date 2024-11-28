@@ -42,6 +42,12 @@ FIELDS = [
   "Transports & Logistique"
 ]
 
+FRENCH_CITIES = [
+  "Paris", "Lyon", "Marseille", "Toulouse", "Nice", "Nantes",
+  "Strasbourg", "Montpellier", "Bordeaux", "Lille", "Rennes",
+  "Reims", "Saint-Étienne", "Toulon", "Le Havre", "Grenoble",
+  "Dijon", "Angers", "Nîmes", "Villeurbanne"
+]
 
 
 puts 'Creating users...'
@@ -77,7 +83,7 @@ users << User.create!(
 
 # users générés
 
-10.times do
+100.times do
   users << User.create!(first_name: Faker::Name.first_name,
                         last_name: Faker::Name.last_name,
                         username: Faker::Internet.username,
@@ -126,51 +132,23 @@ experience3 = Experience.create!(
 experiences << experience3
 
 # experiences générés
-experience4 = Experience.create!(
-    user: users[3],
-    start_date: Faker::Date.backward(days: rand(365..1825)), # Random start date within 5 years
+100.times do
+  experiences << Experience.create!(
+    user: users.sample,
+    start_date: Faker::Date.backward(days: rand(365..1825)),
     end_date: [Faker::Date.backward(days: rand(0..364)), nil].sample,
     is_current: Faker::Boolean.boolean,
     line_of_work: LINES_OF_WORK.sample,
     field: FIELDS.sample,
-    address: Faker::Address.full_address
+    address: "#{FRENCH_CITIES.sample}, France"
   )
-experiences << experience1
+end
 
-experience5 = Experience.create!(
-  user: users[4],
-  start_date: Faker::Date.backward(days: rand(365..1825)),
-  end_date: [Faker::Date.backward(days: rand(0..364)), nil].sample,
-  is_current: Faker::Boolean.boolean,
-  line_of_work: LINES_OF_WORK.sample,
-  field: FIELDS.sample,
-  address: Faker::Address.full_address
-)
-experiences << experience2
 
-experience6 = Experience.create!(
-  user: users[5],
-  start_date: Faker::Date.backward(days: rand(365..1825)),
-  end_date: [Faker::Date.backward(days: rand(0..364)), nil].sample,
-  is_current: Faker::Boolean.boolean,
-  line_of_work: LINES_OF_WORK.sample,
-  field: FIELDS.sample,
-  address: Faker::Address.full_address
-)
-experiences << experience3
-
-experience7 = Experience.create!(
-  user: users[6],
-  start_date: Faker::Date.backward(days: rand(365..1825)),
-  end_date: [Faker::Date.backward(days: rand(0..364)), nil].sample,
-  is_current: Faker::Boolean.boolean,
-  line_of_work: LINES_OF_WORK.sample,
-  field: FIELDS.sample,
-  address: Faker::Address.full_address
-)
-experiences << experience4
 
 puts 'Creating searches...'
+searches = []
+
 search1 = Search.new(user: users[0],
   experience: experiences.sample,
   line_of_work: LINES_OF_WORK.sample,
@@ -195,34 +173,37 @@ search3 = Search.new(user: users[2],
   is_offering: Faker::Boolean.boolean
 )
 
-search4 = Search.new(user: users[3],
-  experience: experiences.sample,
-  line_of_work: LINES_OF_WORK.sample,
-  field: FIELDS.sample,
-  address: Faker::Address.full_address,
-  is_offering: Faker::Boolean.boolean
-)
+# searches générés
+100.times do
+  searches << Search.create!(
+    user: users.sample,
+    experience: experiences.sample,
+    line_of_work: LINES_OF_WORK.sample,
+    field: FIELDS.sample,
+    address: "#{FRENCH_CITIES.sample}, France",
+    is_offering: Faker::Boolean.boolean
+  )
+end
 
 search1.save!
 search2.save!
 search3.save!
-search4.save!
 
-users << User.create!(first_name: "Juliette",
-  last_name: "Voilatipa",
-  username: "juju",
-  email: "juliette.voilatipa@yahoo.fr",
-  password: "password",
-  date_of_birth: "1990-09-13"
-  )
+# users << User.create!(first_name: "Juliette",
+#   last_name: "Voilatipa",
+#   username: "juju",
+#   email: "juliette.voilatipa@yahoo.fr",
+#   password: "password",
+#   date_of_birth: "1990-09-13"
+#   )
 
-Experience.create!(
-    user: users[4],
-    start_date: "2020-02-02",
-    is_current: true,
-    line_of_work: "ventes",
-    field: "Imprimerie",
-    address: "3 Allier"
-  )
-
+# Experience.create!(
+#     user: users[4],
+#     start_date: "2020-02-02",
+#     is_current: true,
+#     line_of_work: "ventes",
+#     field: "Imprimerie",
+#     address: "3 Allier"
+#   )
+#  s
 puts 'Seed complete! 🎉'

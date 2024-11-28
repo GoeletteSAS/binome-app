@@ -208,4 +208,21 @@ search2.save!
 search3.save!
 search4.save!
 
+users << User.create!(first_name: "Juliette",
+  last_name: "Voilatipa",
+  username: "juju",
+  email: "juliette.voilatipa@yahoo.fr",
+  password: "password",
+  date_of_birth: "1990-09-13"
+  )
+
+Experience.create!(
+    user: users[4],
+    start_date: "2020-02-02",
+    is_current: true,
+    line_of_work: "ventes",
+    field: "Imprimerie",
+    address: "3 Allier"
+  )
+
 puts 'Seed complete! 🎉'

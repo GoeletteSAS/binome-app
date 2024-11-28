@@ -12,22 +12,11 @@ Rails.application.routes.draw do
   resources :experiences, only: [:new,:create, :update, :destroy]
   resources :searches, only: [:new, :create, :update, :destroy]
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-  get '/dashboard', to: 'pages#dashboard', as: :dashboard
-  post '/dashboard', to: 'searches#create'
-=======
-=======
->>>>>>> e1e64ffffeec0d5c6be9a33f1ec624c496ef54a7
   get 'search_init', to: 'searches#init', as: :init
 
   get '/dashboard_searches', to: 'pages#dashboard_searches', as: :dashboard_searches
   get '/dashboard_favorites', to: 'pages#dashboard_favorites', as: :dashboard_favorites
   get '/dashboard_profile', to: 'pages#dashboard_profile', as: :dashboard_profile
-<<<<<<< HEAD
->>>>>>> f287b4c02e813d9b2f991276ec5dbda321538c85
-=======
->>>>>>> e1e64ffffeec0d5c6be9a33f1ec624c496ef54a7
 
   # Defines the root path route ("/")
 end

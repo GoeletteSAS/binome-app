@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :searches, only: [:new, :create, :update, :destroy]
 
   get '/dashboard', to: 'pages#dashboard', as: :dashboard
+  post '/dashboard', to: 'searches#create'
 
   # Defines the root path route ("/")
 end

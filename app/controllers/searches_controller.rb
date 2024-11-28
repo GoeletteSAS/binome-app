@@ -6,8 +6,11 @@ class SearchesController < ApplicationController
     # Configurer geocoder pour fonctionner avec Mapbox
     # Regarder le cours sur geocoder pour mettre la bonne méthode (geocoded_by) dans le model qui contient l'adresse (experience)
     # Essayer de joindre les utilisateurs et les experiences (.joins)
+
+    @matching_experiences = Experience.near(@search.address, 10).map(&:id)
     @matching_users = User.joins(:experiences)
                        .where(experiences: {
+                         id: @matching_experiences,
                          line_of_work: @search.line_of_work,
                          field: @search.field
                        })

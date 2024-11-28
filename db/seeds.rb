@@ -84,13 +84,14 @@ users << User.create!(
 # users générés
 
 100.times do
-  users << User.create!(first_name: Faker::Name.first_name,
-                        last_name: Faker::Name.last_name,
-                        username: Faker::Internet.username,
-                        email: Faker::Internet.email,
-                        password: "password",
-                        date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65)
-                        )
+  users << User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    username: Faker::Internet.username,
+    email: Faker::Internet.email,
+    password:"password",
+    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65)
+  )
 end
 
 puts 'Creating experiences...'
@@ -105,7 +106,9 @@ experience1 = Experience.create!(
   is_current: true,
   line_of_work: "contrôle de gestion",
   field: "Agroalimentaire",
-  address: "Paris, France"
+  address: "Paris, France",
+  latitude: 48.856613,
+  longitude: 2.352222
 )
 experiences << experience1
 
@@ -116,7 +119,9 @@ experience2 = Experience.create!(
   is_current: false,
   line_of_work: "marketing",
   field: "Textile, Habillement & Chaussure",
-  address: "Lyon, France"
+  address: "Lyon, France",
+  latitude: 45.764043,
+  longitude: 4.835659
 )
 experiences << experience2
 
@@ -127,7 +132,9 @@ experience3 = Experience.create!(
   is_current: true,
   line_of_work: "maintenance",
   field: "Machines et équipements & Automobile",
-  address: "Bordeaux, France"
+  address: "Bordeaux, France",
+  latitude: 44.837789,
+  longitude: -0.57918
 )
 experiences << experience3
 
@@ -145,11 +152,10 @@ experiences << experience3
 end
 
 
-
 puts 'Creating searches...'
 searches = []
 
-search1 = Search.new(user: users[0],
+searches <<  Search.new(user: users[0],
   experience: experiences.sample,
   line_of_work: LINES_OF_WORK.sample,
   field: FIELDS.sample,
@@ -157,7 +163,7 @@ search1 = Search.new(user: users[0],
   is_offering: Faker::Boolean.boolean
 )
 
-search2 = Search.new(user: users[1],
+searches <<  Search.new(user: users[1],
   experience: experiences.sample,
   line_of_work: LINES_OF_WORK.sample,
   field: FIELDS.sample,
@@ -165,7 +171,7 @@ search2 = Search.new(user: users[1],
   is_offering: Faker::Boolean.boolean
 )
 
-search3 = Search.new(user: users[2],
+searches <<  Search.new(user: users[2],
   experience: experiences.sample,
   line_of_work: LINES_OF_WORK.sample,
   field: FIELDS.sample,
@@ -184,10 +190,6 @@ search3 = Search.new(user: users[2],
     is_offering: Faker::Boolean.boolean
   )
 end
-
-search1.save!
-search2.save!
-search3.save!
 
 # users << User.create!(first_name: "Juliette",
 #   last_name: "Voilatipa",

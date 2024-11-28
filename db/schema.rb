@@ -11,8 +11,11 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_11_28_134356) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "experiences", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.date "start_date"
     t.date "end_date"
     t.boolean "is_current"
@@ -32,8 +35,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_134356) do
   end
 
   create_table "searches", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "experience_id"
+    t.bigint "user_id", null: false
+    t.bigint "experience_id"
     t.string "line_of_work"
     t.string "field"
     t.string "address"

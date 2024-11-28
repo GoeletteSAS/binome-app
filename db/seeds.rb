@@ -42,8 +42,6 @@ FIELDS = [
   "Transports & Logistique"
 ]
 
-
-
 puts 'Creating users...'
 users = []
 
@@ -78,13 +76,14 @@ users << User.create!(
 # users générés
 
 10.times do
-  users << User.create!(first_name: Faker::Name.first_name,
-                        last_name: Faker::Name.last_name,
-                        username: Faker::Internet.username,
-                        email: Faker::Internet.email,
-                        password: "password",
-                        date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65)
-                        )
+  users << User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    username: Faker::Internet.username,
+    email: Faker::Internet.email,
+    password: "password",
+    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65)
+    )
 end
 
 puts 'Creating experiences...'
@@ -135,7 +134,7 @@ experience4 = Experience.create!(
     field: FIELDS.sample,
     address: Faker::Address.full_address
   )
-experiences << experience1
+experiences << experience4
 
 experience5 = Experience.create!(
   user: users[4],
@@ -146,7 +145,7 @@ experience5 = Experience.create!(
   field: FIELDS.sample,
   address: Faker::Address.full_address
 )
-experiences << experience2
+experiences << experience5
 
 experience6 = Experience.create!(
   user: users[5],
@@ -157,7 +156,7 @@ experience6 = Experience.create!(
   field: FIELDS.sample,
   address: Faker::Address.full_address
 )
-experiences << experience3
+experiences << experience6
 
 experience7 = Experience.create!(
   user: users[6],
@@ -168,10 +167,11 @@ experience7 = Experience.create!(
   field: FIELDS.sample,
   address: Faker::Address.full_address
 )
-experiences << experience4
+experiences << experience7
 
 puts 'Creating searches...'
-search1 = Search.new(user: users[0],
+search1 = Search.new(
+  user: users[0],
   experience: experiences.sample,
   line_of_work: LINES_OF_WORK.sample,
   field: FIELDS.sample,
@@ -179,7 +179,8 @@ search1 = Search.new(user: users[0],
   is_offering: Faker::Boolean.boolean
 )
 
-search2 = Search.new(user: users[1],
+search2 = Search.new(
+  user: users[1],
   experience: experiences.sample,
   line_of_work: LINES_OF_WORK.sample,
   field: FIELDS.sample,
@@ -187,7 +188,8 @@ search2 = Search.new(user: users[1],
   is_offering: Faker::Boolean.boolean
 )
 
-search3 = Search.new(user: users[2],
+search3 = Search.new(
+  user: users[2],
   experience: experiences.sample,
   line_of_work: LINES_OF_WORK.sample,
   field: FIELDS.sample,
@@ -195,7 +197,8 @@ search3 = Search.new(user: users[2],
   is_offering: Faker::Boolean.boolean
 )
 
-search4 = Search.new(user: users[3],
+search4 = Search.new(
+  user: users[3],
   experience: experiences.sample,
   line_of_work: LINES_OF_WORK.sample,
   field: FIELDS.sample,
@@ -208,7 +211,8 @@ search2.save!
 search3.save!
 search4.save!
 
-users << User.create!(first_name: "Juliette",
+users << User.create!(
+  first_name: "Juliette",
   last_name: "Voilatipa",
   username: "juju",
   email: "juliette.voilatipa@yahoo.fr",
@@ -217,7 +221,7 @@ users << User.create!(first_name: "Juliette",
   )
 
 Experience.create!(
-    user: users[4],
+    user: User.last,
     start_date: "2020-02-02",
     is_current: true,
     line_of_work: "ventes",

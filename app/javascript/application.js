@@ -3,3 +3,5 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
+import SearchAutoFillController from "./controllers/search_auto_fill_controller.js"
+Stimulus.register("search-auto-fill", SearchAutoFillController)

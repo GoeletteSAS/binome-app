@@ -1,0 +1,12 @@
+<%= simple_form_for @search, url: new_search_path, method: :get do |f| %>
+
+  <div data-controller="search-auto-fill", data-action="input->search-auto-fill#display">
+      <%= f.input :is_offering,
+                  as: :select,
+                  collection: [["j'invite",true], ["je rejoins",false]],
+                  required: true,
+                  as: :radio_buttons,
+                  label: "Voulez-vous inviter quelqu'un à vous rejoindre sur votre poste ? Ou rejoindre quelqu'un sur son propre poste ?"%>
+  </div>
+  <%= f.submit %>
+<% end %>

@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
   def dashboard_searches
     @user = current_user
+    @searches = Search.find_by(user: current_user)
   end
 
   def dashboard_profile

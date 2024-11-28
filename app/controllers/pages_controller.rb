@@ -15,5 +15,4 @@ class PagesController < ApplicationController
   def dashboard_favorites
     @user = current_user
   end
-
 end

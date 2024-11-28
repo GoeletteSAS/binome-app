@@ -149,16 +149,27 @@ class SearchesController < ApplicationController
     @lines_of_work = LINES_OF_WORK
     @departments = DEPARTMENTS
     @fields = FIELDS
+    # @experience = current_user.experiences.where(is_current: true)
+    # if @experience
+    #   return
+    # else
+
+    # end
   end
 
   def create
     @search = Search.new(search_params)
+    @experience = current_user.experiences.where(is_current: true)
+  # if test
+
+  # else
     @search.user = current_user
     if @search.save
       redirect_to dashboard_path
     else
       render 'new', status: :unprocessable_entity
     end
+  # end
   end
 
   def update

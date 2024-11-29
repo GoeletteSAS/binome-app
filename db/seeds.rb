@@ -210,6 +210,5 @@ Experience.create!(
     field: "Imprimerie",
     address: "3 Allier"
   )
-end
 
 puts 'Seed complete! 🎉'

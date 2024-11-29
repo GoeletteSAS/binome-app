@@ -11,7 +11,8 @@ class SearchesController < ApplicationController
                        .where(experiences: {
                          id: @matching_experiences,
                          line_of_work: @search.line_of_work,
-                         field: @search.field
+                         field: @search.field,
+                         is_current: true
                        })
 
     # Essayer de faire un .where sur les experiences qui ont la même adresse que la search (utiliser .near)

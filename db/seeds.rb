@@ -143,7 +143,7 @@ experiences << experience3
     user: users.sample,
     start_date: Faker::Date.backward(days: rand(365..1825)),
     end_date: [Faker::Date.backward(days: rand(0..364)), nil].sample,
-    is_current: Faker::Boolean.boolean,
+    is_current: true,
     line_of_work: LINES_OF_WORK.sample,
     field: FIELDS.sample,
     address: "#{FRENCH_CITIES.sample}, France"

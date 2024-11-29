@@ -1,2 +1,29 @@
 <div><%= render "tabs" %></div>
 
+<div class="row">
+  <div class="col-3">
+    <% @searches.each do |search| %>
+      <%= link_to search_path(search), data: { turbo_frame: "preview" } do %>
+        <% if search.is_offering? %>
+          <div class="border p-3">
+            Partager mon poste
+            <%= search.line_of_work %>
+            <%= search.address %>
+          </div>
+        <% else %>
+          <div class="border">
+            Rejoindre un poste
+            <%= search.line_of_work %>
+            <%= search.address %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-9">
+    <%= turbo_frame_tag "preview" %>
+  </div>
+</div>
+
+<p>vérifier le doublon</p>
+<%= render "cards_jobsearch" %>

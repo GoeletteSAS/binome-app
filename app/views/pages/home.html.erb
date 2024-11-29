@@ -5,9 +5,9 @@
   <div class="text-center">
     <div class="d-flex gap-4">
       <% if user_signed_in? %>
-        <%= link_to "Je cherche à partager mon job", new_search_path,
+        <%= link_to "Je cherche à partager mon job", init_path,
                     class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
-        <%= link_to "Je cherche à rejoindre quelqu'un sur son poste", new_search_path,
+        <%= link_to "Je cherche à rejoindre quelqu'un sur son poste", init_path,
               class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
       <% else %>
         <%= link_to "Je cherche à partager mon job", new_user_registration_path,
@@ -15,7 +15,7 @@
         <%= link_to "Je cherche à rejoindre quelqu'un sur son poste", new_user_registration_path,
               class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
       <% end %>
-      
+
     </div>
   </div>
 </div>

@@ -1,0 +1,29 @@
+<%= turbo_frame_tag "preview" do %>
+  <% if @matching_users.any? %>
+    <h2 class="search-title">Profils correspondants</h2>
+    <div class="matching-profiles">
+      <% @matching_users.each do |matching_user| %>
+        <% @user = User.find(matching_user.id) %>
+        <div class="profile-card">
+          <div class="profile-info">
+            <h3 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h3>
+            <p class="profile-email"><i class="fas fa-envelope"></i> <%= @user.email %></p>
+          </div>
+
+          <div class="profile-experiences">
+            <h4 class="experiences-title">Expériences</h4>
+            <% @user.experiences.where(line_of_work: @search.line_of_work, field: @search.field).each do |experience| %>
+              <div class="experience-item">
+                <p><i class="fas fa-briefcase"></i> <strong>Fonction:</strong> <%= experience.line_of_work %></p>
+                <p><i class="fas fa-industry"></i> <strong>Secteur:</strong> <%= experience.field %></p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Lieu:</strong> <%= experience.address %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p class="no-results">Aucun profil correspondant trouvé</p>
+  <% end %>
+<% end %>

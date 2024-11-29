@@ -25,6 +25,20 @@
   transform: translateY(-5px);
 }
 
+.profile-subcard-with-photo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-subcard-with-photo img {
+  border-radius: 50%;
+  height: 48px;
+  width: 100%;
+  margin-top: 10px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
 .profile-name {
   color: #2c3e50;
   margin-bottom: 0.5rem;

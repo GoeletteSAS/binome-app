@@ -5,19 +5,23 @@
     <% @searches.each do |search| %>
       <%= link_to search_path(search), data: { turbo_frame: "preview" } do %>
         <% if search.is_offering? %>
-          <div class="border p-3">
-            Partager mon poste
-            <div><%= search.line_of_work.capitalize %></div>
-            <div><%= search.address %></div>
+          <div class="d-flex border profile-card">
+            <div class="col-10">
+              <div><h3>Partager mon poste</h3></div>
+              <div class="line-of-work col-6"><%= search.line_of_work.capitalize %></div>
+              <div class="adress col-6"><%= search.address %></div>
+            </div>
           </div>
         <% else %>
           <div class="d-flex border profile-card">
-            <div class="col-8">
-              Rejoindre un poste
-              <div class="col-4"><%= search.line_of_work.capitalize %></div>
-              <div class="col-4"><%= search.address %></div>
+            <div class="col-10">
+              <div><h3>Rejoindre un poste</h3></div>
+              <div class="line-of-work col-6"><%= search.line_of_work.capitalize %></div>
+              <div class="address col-6"><%= search.address %></div>
             </div>
-            <p style="margin:0px; font-size: 30px;" class="d-flex justify-content-center align-items-center col-2">40%</p>
+            <p style="margin: 0; font-size: 30px;" class="d-flex justify-content-center align-items-center col-2">
+              40%
+            </p>
           </div>
         <% end %>
       <% end %>

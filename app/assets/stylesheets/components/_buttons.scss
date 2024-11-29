@@ -1,0 +1,20 @@
+.round-button {
+  background-image: asset-url("https://www.iconpacks.net/icons/2/free-plus-icon-3107-thumb.png");
+  color: black;
+  font-weight: bold;
+  text-shadow: #FC0 1px 0 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $mid-green;
+  border-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $dark-green;
+  }
+}

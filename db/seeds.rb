@@ -11,42 +11,17 @@ User.destroy_all
 LINES_OF_WORK = [
   "ventes",
   "production",
-  "achats",
-  "maintenance",
-  "logistique",
   "marketing",
-  "comptabilité",
-  "contrôle de gestion",
-  "trésorerie"
 ]
 
 FIELDS = [
-  "Agroalimentaire",
-  "Banque & Assurance",
-  "Bois, Papier & Carton",
-  "Imprimerie",
-  "BTP",
-  "Matériaux de construction",
-  "Chimie & Parachimie",
-  "Commerce, Négoce & Distribution",
-  "Édition, Communication & Multimédia",
-  "Électronique & Électricité",
-  "Études et conseils",
-  "Industrie pharmaceutique",
-  "Informatique & Télécoms",
-  "Machines et équipements & Automobile",
-  "Métallurgie & Travail du métal",
-  "Plastique & Caoutchouc",
   "Services-aux-entreprises",
   "Textile, Habillement & Chaussure",
   "Transports & Logistique"
 ]
 
 FRENCH_CITIES = [
-  "Paris", "Lyon", "Marseille", "Toulouse", "Nice", "Nantes",
-  "Strasbourg", "Montpellier", "Bordeaux", "Lille", "Rennes",
-  "Reims", "Saint-Étienne", "Toulon", "Le Havre", "Grenoble",
-  "Dijon", "Angers", "Nîmes", "Villeurbanne"
+  "Paris", "Lyon", "Marseille",
 ]
 
 puts 'Creating users...'
@@ -103,8 +78,8 @@ experience1 = Experience.create!(
   start_date: Date.new(2020, 9, 1),
   end_date: nil,
   is_current: true,
-  line_of_work: "contrôle de gestion",
-  field: "Agroalimentaire",
+  line_of_work: "ventes",
+  field: "Services-aux-entreprises",
   address: "Paris, France",
   latitude: 48.856613,
   longitude: 2.352222
@@ -129,9 +104,9 @@ experience3 = Experience.create!(
   start_date: Date.new(2021, 6, 1),
   end_date: nil,
   is_current: true,
-  line_of_work: "maintenance",
-  field: "Machines et équipements & Automobile",
-  address: "Bordeaux, France",
+  line_of_work: "production",
+  field: "Transports & Logistique",
+  address: "Marseille, France",
   latitude: 44.837789,
   longitude: -0.57918
 )
@@ -143,7 +118,7 @@ experiences << experience3
     user: users.sample,
     start_date: Faker::Date.backward(days: rand(365..1825)),
     end_date: [Faker::Date.backward(days: rand(0..364)), nil].sample,
-    is_current: Faker::Boolean.boolean,
+    is_current: true,
     line_of_work: LINES_OF_WORK.sample,
     field: FIELDS.sample,
     address: "#{FRENCH_CITIES.sample}, France"

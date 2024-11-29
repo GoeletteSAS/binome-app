@@ -49,7 +49,6 @@ FRENCH_CITIES = [
   "Dijon", "Angers", "Nîmes", "Villeurbanne"
 ]
 
-
 puts 'Creating users...'
 users = []
 
@@ -89,9 +88,9 @@ users << User.create!(
     last_name: Faker::Name.last_name,
     username: Faker::Internet.username,
     email: Faker::Internet.email,
-    password:"password",
+    password: "password",
     date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65)
-  )
+    )
 end
 
 puts 'Creating experiences...'
@@ -155,7 +154,8 @@ end
 puts 'Creating searches...'
 searches = []
 
-searches <<  Search.new(user: users[0],
+searches <<  Search.new(
+  user: users[0],
   experience: experiences.sample,
   line_of_work: LINES_OF_WORK.sample,
   field: FIELDS.sample,
@@ -163,7 +163,8 @@ searches <<  Search.new(user: users[0],
   is_offering: Faker::Boolean.boolean
 )
 
-searches <<  Search.new(user: users[1],
+searches <<  Search.new(
+  user: users[1],
   experience: experiences.sample,
   line_of_work: LINES_OF_WORK.sample,
   field: FIELDS.sample,
@@ -171,7 +172,8 @@ searches <<  Search.new(user: users[1],
   is_offering: Faker::Boolean.boolean
 )
 
-searches <<  Search.new(user: users[2],
+searches <<  Search.new(
+  user: users[2],
   experience: experiences.sample,
   line_of_work: LINES_OF_WORK.sample,
   field: FIELDS.sample,
@@ -188,24 +190,26 @@ searches <<  Search.new(user: users[2],
     field: FIELDS.sample,
     address: "#{FRENCH_CITIES.sample}, France",
     is_offering: Faker::Boolean.boolean
+    )
+end
+
+users << User.create!(
+  first_name: "Juliette",
+  last_name: "Voilatipa",
+  username: "juju",
+  email: "juliette.voilatipa@yahoo.fr",
+  password: "password",
+  date_of_birth: "1990-09-13"
+  )
+
+Experience.create!(
+    user: User.last,
+    start_date: "2020-02-02",
+    is_current: true,
+    line_of_work: "ventes",
+    field: "Imprimerie",
+    address: "3 Allier"
   )
 end
 
-# users << User.create!(first_name: "Juliette",
-#   last_name: "Voilatipa",
-#   username: "juju",
-#   email: "juliette.voilatipa@yahoo.fr",
-#   password: "password",
-#   date_of_birth: "1990-09-13"
-#   )
-
-# Experience.create!(
-#     user: users[4],
-#     start_date: "2020-02-02",
-#     is_current: true,
-#     line_of_work: "ventes",
-#     field: "Imprimerie",
-#     address: "3 Allier"
-#   )
-#  s
 puts 'Seed complete! 🎉'

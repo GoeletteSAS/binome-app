@@ -1,6 +1,4 @@
 <div><%= render "tabs" %></div>
-
-
 <div class="row">
   <div class="col-3">
     <% @searches.each do |search| %>
@@ -25,3 +23,6 @@
     <%= turbo_frame_tag "preview" %>
   </div>
 </div>
+
+<p>vérifier le doublon</p>
+<%= render "cards_jobsearch" %>

@@ -1,32 +1,21 @@
 <div>
   <%= simple_form_for @search do |f| %>
     <div class="row">
-      <div>
-        <%= f.input :is_offering,
-                    as: :select,
-                    collection: [["j'invite",true], ["je rejoins",false]],
-                    required: true,
-                    label: "Voulez-vous inviter quelqu'un à vous rejoindre sur votre poste ? Ou rejoindre quelqu'un sur son propre poste ?"%>
-      </div>
-  <%# if is_offering && @current_user.experiences.any? %>
-      <div class="col-md-6">
-        <%= f.input :line_of_work, label: "Quelle est votre ligne de métier ?", input_html: { class: 'form-control' }, collection: @lines_of_work, required: true %>
-      </div>
-      <div class="col-md-6">
-        <%= f.input :field, label: "Quel est votre secteur d'activité ?", input_html: { class: 'form-control' }, collection: @fields, required: true %>
-      </div>
-      <div class="col-md-6">
-        <%= f.input :address,
-          label: "Où souhaitez-vous chercher ?",
-          input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_ACCESS_TOKEN"]}}
-        %>
-
-      </div>
-      <div class="col-md-6">
-
+        <div class="col-md-6">
+          <%= f.input :line_of_work, label: "Quelle est votre ligne de métier ?", input_html: { class: 'form-control' }, collection: @lines_of_work, required: true %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :field, label: "Quel est votre secteur d'activité ?", input_html: { class: 'form-control' }, collection: @fields, required: true %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :address, label: "Où souhaitez-vous chercher ?", input_html: { class: 'form-control' }, collection: @departments, required: true %>
+        </div>
       <div class="text-center mt-4">
         <%= f.submit 'Lancer ma recherche', id: 'bright', class: 'btn btn-primary btn-lg px-4' %>
       </div>
+
+      <%= f.input :is_offering, as: :hidden %>
+      <%= f.input :experience_id, as: :hidden %>
+    </div>
   <% end %>
 </div>

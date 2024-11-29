@@ -1,28 +1,29 @@
 <div><%= render "tabs" %></div>
 
 <div class="row">
-  <div class="col-3">
+  <div class="col-5">
     <% @searches.each do |search| %>
       <%= link_to search_path(search), data: { turbo_frame: "preview" } do %>
         <% if search.is_offering? %>
           <div class="border p-3">
             Partager mon poste
-            <%= search.line_of_work %>
-            <%= search.address %>
+            <div><%= search.line_of_work.capitalize %></div>
+            <div><%= search.address %></div>
           </div>
         <% else %>
-          <div class="border profile-card">
-            <p style="text-decoration: none;">
-            Rejoindre un poste
-            <%= search.line_of_work %>
-            <%= search.address %>
-            </p>
+          <div class="d-flex border profile-card">
+            <div class="col-8">
+              Rejoindre un poste
+              <div class="col-4"><%= search.line_of_work.capitalize %></div>
+              <div class="col-4"><%= search.address %></div>
+            </div>
+            <p style="margin:0px; font-size: 30px;" class="d-flex justify-content-center align-items-center col-2">40%</p>
           </div>
         <% end %>
       <% end %>
     <% end %>
   </div>
-  <div class="col-9">
+  <div class="col-7">
     <%= turbo_frame_tag "preview" %>
   </div>
 </div>

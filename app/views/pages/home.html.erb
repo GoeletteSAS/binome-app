@@ -1,21 +1,37 @@
 <%# <h1>Pages#home</h1> %>
 <%# <p>Find me in app/views/pages/home.html.erb</p> %>
+<div class="home-background home-left-spacing">
 
-<div class="d-flex align-items-center justify-content-center vh-100">
-  <div class="text-center">
-    <div class="d-flex gap-4">
-      <% if user_signed_in? %>
-        <%= link_to "Je cherche à partager mon job", init_path,
-                    class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
-        <%= link_to "Je cherche à rejoindre quelqu'un sur son poste", init_path,
-              class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
-      <% else %>
-        <%= link_to "Je cherche à partager mon job", new_user_registration_path,
-                    class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
-        <%= link_to "Je cherche à rejoindre quelqu'un sur son poste", new_user_registration_path,
-              class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
-      <% end %>
+  <div class="card-home">
+    <h1>Bienvenue sur Binôme !</h1>
+    <p>Avec <strong>Binôme</strong>, nous vous aidons à trouver votre duo de jobsharing.</p>
+  </div>
 
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="text-center">
+      <div class="d-flex gap-4">
+        <% if user_signed_in? %>
+          <%= link_to "Je cherche un binôme", init_path,
+                      class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
+        <% else %>
+          <%= link_to "Je cherche un binôme", new_user_registration_path,
+                      class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
+        <% end %>
+      </div>
     </div>
   </div>
+
+  <div class="d-flex align-items-center justify-content-evenly">
+    <div class="flex-item mini-card-home">
+      <h2>Flexilité</h2>
+      <p>Choisissez votre temps de travail</p>
+    </div>
+    <div class="flex-item mini-card-home">
+      <h2>Equilibre</h2>
+      <p>Gardez du temps pour vos projets personnels</p>
+    </div>
+    <div class="flex-item mini-card-home">
+      <h2>Performance</h2>
+      <p>Epanouissez-vous sans compromis dans votre carrière</p>
+    </div>
 </div>

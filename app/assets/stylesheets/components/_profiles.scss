@@ -1,0 +1,67 @@
+.search-title {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.matching-profiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.profile-card {
+  background-color: azure;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+}
+
+.profile-name {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.profile-email {
+  color: silver;
+  margin-bottom: 1.5rem;
+}
+
+.experiences-title {
+  color: dimgrey;
+  border-bottom: 2px solid #5c6ac4;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.experience-item {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.experience-item p {
+  margin: 0.5rem 0;
+  color: #4a5568;
+}
+
+.experience-item i {
+  color: darkkhaki;
+  margin-right: 0.5rem;
+}
+
+.no-results {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 1.2rem;
+  padding: 2rem;
+}

@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :experiences
-  has_many :searches
+  has_many :experiences, dependent: :destroy
+  has_many :searches, dependent: :destroy
   has_one_attached :photo, dependent: :destroy
 
   def current_experience

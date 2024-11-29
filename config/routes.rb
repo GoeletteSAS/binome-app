@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :experiences, only: [:new,:create, :update, :destroy]
-  resources :searches, only: [:new, :create, :update, :destroy]
+  resources :searches, only: [:show, :new, :create, :update, :destroy]
 
   get 'search_init', to: 'searches#init', as: :init
 

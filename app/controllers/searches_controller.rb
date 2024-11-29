@@ -18,7 +18,7 @@ class SearchesController < ApplicationController
     # et .where sur les experiences qui ont le même line_of_work que la search
     # et .where sur les experiences qui ont le même field que la search
   end
-  
+
   def new
 
     # @experience = current_user.experiences.where(is_current: true)
@@ -44,7 +44,6 @@ class SearchesController < ApplicationController
   def create
     @search = Search.new(search_params)
     @search.user = current_user
-
   # else
     if @search.save
       redirect_to dashboard_searches_path

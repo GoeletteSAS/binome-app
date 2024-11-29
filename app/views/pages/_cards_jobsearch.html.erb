@@ -1,47 +1,47 @@
 <main class="row">
-  <div class="cards">
-    <div style="height:100%; width:197px; background-color:black; border-start-start-radius: 10px; border-end-start-radius: 10px; border-start-end-radius: 10px; border-end-end-radius: 10px;">
-    </div>
-    <div style="width:435px; margin-left: 10px;">
-      <h1>Partager mon poste</h1>
-      <p><%= current_user.current_experience.line_of_work %></p>
-      <p><%= current_user.current_experience.address %></p>
-    </div>
-    <p style="width:197px; font-size: 80px; height:100%; align-items:center;">40%</p>
-    <span>
-      <small><p>${#number_profils} profils</p></small>
-      <div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </span>
-  </div>
   <% if current_user.searches.nil?%>
     <div class="cards">
-      <h1>Aucun résultat trouvé</h1>
+      <h1>Aucun recherche ici</h1>
     </div>
   <%else%>
-    <% current_user.searches.each do |search| %>
-      <div class="cards">
-        <div style="height:100%; width:197px; background-color:black; border-start-start-radius: 10px; border-end-start-radius: 10px; border-start-end-radius: 10px; border-end-end-radius: 10px;">
-        </div>
-        <div style="width:435px; margin-left: 10px;">
-          <h1>Rejoindre un poste</h1>
-          <p><%= search.line_of_work %></p>
-          <p><%= search.address %></p>
-        </div>
-        <p style="width:197px; font-size: 80px; height:100%; align-items:center;">40%</p>
-        <span>
-          <small><p>(ajouter number_profils)</p></small>
-          <div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </span>
+    <div class="cards">
+      <div style="height:100%; width:197px; background-color:black; border-start-start-radius: 10px; border-end-start-radius: 10px; border-start-end-radius: 10px; border-end-end-radius: 10px;">
       </div>
-    <% end %>
+      <div style="width:435px; margin-left: 10px;">
+        <h1>Partager mon poste</h1>
+        <p><%= current_user.current_experience.line_of_work %></p>
+        <p><%= current_user.current_experience.address %></p>
+      </div>
+      <p style="width:197px; font-size: 80px; height:100%; align-items:center;">40%</p>
+      <span>
+        <small><p>${#number_profils} profils</p></small>
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </span>
+    </div>
+      <% current_user.searches.each do |search| %>
+        <div class="cards">
+          <div style="height:100%; width:197px; background-color:black; border-start-start-radius: 10px; border-end-start-radius: 10px; border-start-end-radius: 10px; border-end-end-radius: 10px;">
+          </div>
+          <div style="width:435px; margin-left: 10px;">
+            <h1>Rejoindre un poste</h1>
+            <p><%= search.line_of_work %></p>
+            <p><%= search.address %></p>
+          </div>
+          <p style="width:197px; font-size: 80px; height:100%; align-items:center;">40%</p>
+          <span>
+            <small><p>(ajouter number_profils)</p></small>
+            <div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </span>
+        </div>
+      <% end %>
   <% end %>
 </main>
 <%# params.require(:search).permit(:user_id, :experience_id, :line_of_work, :field, :address, :is_offering) %>

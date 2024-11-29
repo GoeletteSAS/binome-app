@@ -1,12 +1,12 @@
 <div><%= render "tabs" %></div>
 <main class="profile-container">
   <section class="profile-content">
-    <%= render "form", experience: @experience %>
+    <%= render "experiences/form", experience: @experience %>
   </section>
 </main>
 
 <div>
-<% current_user.photos.each do |photo| %>
-<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "img-fluid" %>
-<% end %>
+<%# .photos.each do |photo| %>
+<%#= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill, class: "img-fluid" %>
+<%# end %>
 </div>

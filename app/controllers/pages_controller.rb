@@ -10,6 +10,7 @@ class PagesController < ApplicationController
 
   def dashboard_profile
     @user = current_user
+    @experience = Experience.new(user: current_user)
   end
 
   def dashboard_favorites

@@ -11,7 +11,7 @@
     <div class="text-center">
       <div class="d-flex gap-4">
         <% if user_signed_in? %>
-          <%= link_to "Je cherche un binôme", init_path,
+          <%= link_to "Je cherche un binôme", init_searches_path,
                       class: "btn btn-primary btn-md px-4 py-2 rounded-pill" %>
         <% else %>
           <%= link_to "Je cherche un binôme", new_user_registration_path,

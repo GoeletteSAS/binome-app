@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :experiences, only: [:new,:create, :update, :destroy]
-  resources :searches, only: [:show, :new, :create, :update, :destroy]
-
-  get 'search_init', to: 'searches#init', as: :init
+  resources :searches, only: [:show, :new, :create, :update, :destroy] do
+    collection do
+      get :init, as: :init
+    end
+  end
 
   get '/dashboard_searches', to: 'pages#dashboard_searches', as: :dashboard_searches
   get '/dashboard_favorites', to: 'pages#dashboard_favorites', as: :dashboard_favorites

@@ -5,9 +5,18 @@
       <% @matching_users.each do |matching_user| %>
         <% @user = User.find(matching_user.id) %>
         <div class="profile-card">
-          <div class="profile-info">
-            <h3 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h3>
-            <p class="profile-email"><i class="fas fa-envelope"></i> <%= @user.email %></p>
+          <div class="profile-subcard-with-photo">
+            <div class="profile-info">
+              <h3 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h3>
+              <p class="profile-email"><i class="fas fa-envelope"></i> <%= @user.email %></p>
+            </div>
+            <div>
+              <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill, class: "img-fluid" %>
+              <% else %>
+                <%= image_tag "default-user.svg", alt: "default-profile-photo"%>
+              <% end %>
+            </div>
           </div>
 
           <div class="profile-experiences">

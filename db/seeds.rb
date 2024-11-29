@@ -11,7 +11,7 @@ User.destroy_all
 LINES_OF_WORK = [
   "ventes",
   "production",
-  "marketing",
+  "marketing"
 ]
 
 FIELDS = [
@@ -176,8 +176,8 @@ users << User.create!(
   password: "password",
   date_of_birth: "1990-09-13"
 )
-photojuliette = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/v1732812190/k77ntqucqxeverih1qlr.jpg").open
-photojuliette.photo.attach(io: photojuliette, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")
+# photojuliette = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/v1732812190/k77ntqucqxeverih1qlr.jpg").open
+# photojuliette.photo.attach(io: photojuliette, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")
 
 Experience.create!(
     user: User.last,

@@ -1,1 +1,38 @@
 <div><%= render "tabs" %></div>
+
+<div class="row">
+
+<% if @favorites.any? %>
+  <div class="matching-profiles">
+    <% @favorites.each do |favorite| %>
+      <% @user = User.find(favorite.user_2_id) %>
+      <div class="profile-card">
+        <div class="profile-subcard-with-photo">
+          <div class="profile-info">
+            <h3 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h3>
+            <p class="profile-email"><i class="fas fa-envelope"></i> <%= @user.email %></p>
+          </div>
+          <div>
+            <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill, class: "img-fluid" %>
+            <% else %>
+              <%= image_tag "default-user.svg", alt: "default-profile-photo"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="no-results">Pas de profils sauvegardés pour le moment</p>
+<% end %>
+
+
+
+
+
+
+
+
+
+</div>

@@ -26,6 +26,19 @@
                 <p><i class="fas fa-briefcase"></i> <strong>Fonction:</strong> <%= experience.line_of_work %></p>
                 <p><i class="fas fa-industry"></i> <strong>Secteur:</strong> <%= experience.field %></p>
                 <p><i class="fas fa-map-marker-alt"></i> <strong>Lieu:</strong> <%= experience.address %></p>
+
+              <% if current_user.favorites.exists?(user_2_id: @user.id) %>
+                <!-- Si l'utilisateur a déjà favorisé ce profil, on affiche l'étoile pleine -->
+                <%= button_to favorites_path(user_2_id: @user.id), method: :post, class: "favorite-icon" do %>
+                  <i class="fa-solid fa-star"></i> <!-- L'étoile pleine si déjà favori -->
+                <% end %>
+              <% else %>
+                <!-- Si l'utilisateur n'a pas encore favorisé ce profil, on affiche l'étoile vide -->
+                <%= button_to favorites_path(user_2_id: @user.id), method: :post, class: "favorite-icon" do %>
+                  <i class="fa-regular fa-star"></i> <!-- L'étoile vide si non favori -->
+                <% end %>
+              <% end %>
+
               </div>
             <% end %>
           </div>

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get :init, as: :init
     end
   end
+  resources :favorites, only: [:create, :destroy]
 
   get '/dashboard_searches', to: 'pages#dashboard_searches', as: :dashboard_searches
   get '/dashboard_favorites', to: 'pages#dashboard_favorites', as: :dashboard_favorites

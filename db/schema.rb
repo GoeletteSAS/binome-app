@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_28_164435) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_02_095635) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +57,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_164435) do
     t.index ["user_id"], name: "index_experiences_on_user_id"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_1_id", null: false
+    t.bigint "user_2_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_1_id"], name: "index_favorites_on_user_1_id"
+    t.index ["user_2_id"], name: "index_favorites_on_user_2_id"
+  end
+
   create_table "pages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -96,6 +105,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_164435) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "experiences", "users"
+  add_foreign_key "favorites", "users", column: "user_1_id"
+  add_foreign_key "favorites", "users", column: "user_2_id"
   add_foreign_key "searches", "experiences"
   add_foreign_key "searches", "users"
 end

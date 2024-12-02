@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
   def dashboard_searches
     @searches = current_user.searches
+    @favorite = Favorite.new(user_1_id: current_user.id)
   end
 
   def dashboard_profile
@@ -15,5 +16,6 @@ class PagesController < ApplicationController
 
   def dashboard_favorites
     @user = current_user
+    @favorites = current_user.favorites
   end
 end

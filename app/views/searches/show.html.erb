@@ -11,8 +11,8 @@
               <p class="profile-email"><i class="fas fa-envelope"></i> <%= @user.email %></p>
             </div>
             <div>
-              <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill, class: "img-fluid" %>
+              <% if @user.photo.attached? %>
+              <%= cl_image_tag @user.photo.key, crop: :fill, class: "img-fluid" %>
               <% else %>
                 <%= image_tag "default-user.svg", alt: "default-profile-photo"%>
               <% end %>

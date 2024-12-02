@@ -1,12 +1,12 @@
 <div><%= render "tabs" %></div>
 
-<div class="row">
+<div class="d-flex justify-content-center">
 
 <% if @favorites.any? %>
-  <div class="matching-profiles">
+  <div class="d-flex justify-content-center flex-wrap">
     <% @favorites.each do |favorite| %>
       <% @user = User.find(favorite.user_2_id) %>
-      <div class="profile-card">
+      <div class="profile-card favorite-profiles flex-fill">
         <div class="profile-subcard-with-photo">
           <div class="profile-info">
             <h3 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h3>
@@ -26,13 +26,5 @@
 <% else %>
   <p class="no-results">Pas de profils sauvegardés pour le moment</p>
 <% end %>
-
-
-
-
-
-
-
-
 
 </div>

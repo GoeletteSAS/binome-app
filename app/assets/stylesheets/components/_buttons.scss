@@ -18,3 +18,16 @@
     background-color: $dark-green;
   }
 }
+
+.devise-btn {
+  margin-top : 8px;
+  margin-bottom: 16px;
+  border-style: 1px solid;
+  border-radius: 8px;
+  background-color: $light-blue;
+
+  &:hover {
+    background-color: $mid-blue;
+  }
+
+}

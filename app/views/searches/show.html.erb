@@ -29,12 +29,12 @@
 
               <% if current_user.favorites.exists?(user_2_id: @user.id) %>
                 <!-- Si l'utilisateur a déjà favorisé ce profil, on affiche l'étoile pleine -->
-                <%= button_to favorites_path(user_2_id: @user.id), method: :post, class: "favorite-icon" do %>
+                <%= button_to favorites_path(user_2_id: @user.id), method: :post, data: {turbo: false}, class: "favorite-icon" do %>
                   <i class="fa-solid fa-star"></i> <!-- L'étoile pleine si déjà favori -->
                 <% end %>
               <% else %>
                 <!-- Si l'utilisateur n'a pas encore favorisé ce profil, on affiche l'étoile vide -->
-                <%= button_to favorites_path(user_2_id: @user.id), method: :post, class: "favorite-icon" do %>
+                <%= button_to favorites_path(user_2_id: @user.id), method: :post, data: {turbo: false}, class: "favorite-icon" do %>
                   <i class="fa-regular fa-star"></i> <!-- L'étoile vide si non favori -->
                 <% end %>
               <% end %>

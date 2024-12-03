@@ -23,9 +23,9 @@
               <% end%>
               </p>
             </div>
-            <div class="d-flex justify-content-center">
-              <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill, class: "img-fluid" %>
+            <div>
+              <% if @user.photo.attached? %>
+              <%= cl_image_tag @user.photo.key, crop: :fill, class: "img-fluid" %>
               <% else %>
                 <%= image_tag "default-user.svg", height: 300, width: 400, crop: :fill, alt: "default-profile-photo"%>
               <% end %>

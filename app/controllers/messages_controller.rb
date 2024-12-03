@@ -4,7 +4,8 @@ class MessagesController < ApplicationController
     @message = @chatroom.messages.new(message_params.merge(user_id: current_user.id))
     # merge ensures the sender is the current user
     # the method merge is used to add a key-value pairs in the message_params hash.
-
+    puts "current_user : #{current_user.first_name}"
+    puts "message.sender : #{@message.sender.first_name}"
     if @message.save
       respond_to do |format|
         format.turbo_stream do

@@ -88,15 +88,13 @@
 
 .round-cta {
   font-size: 1rem;
-  color: $white-secondary;
+  color: $gray-secondary;
   text-shadow: 0 0px 1px $light-shadow-secondary;
-  padding: 0.25rem;
-  // background-color: $gray-secondary;
+  background-color: transparent;
   text-shadow: -1px 2px 4px $light-shadow-secondary;
   transition: 0.2s ease;
-  // text-align: center;
+  text-align: center;
   vertical-align: bottom;
-  margin-inline: 5px;
   border: none;
   scale: 1.5;
 }

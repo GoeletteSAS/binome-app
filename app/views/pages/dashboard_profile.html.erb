@@ -2,10 +2,30 @@
 
 <main class="profile-container">
 
+<%if current_user.experiences.any?%>
 
-<section class="profile-content">
-  <%= render "experiences/form", experience: @experience %>
-</section>
+  <div class="">
+    <% current_user.experiences.each do |experience| %>
+      <h3>Expérience</h3>
+      <p>Métier : <%= experience.line_of_work %></p>
+      <p>Secteur : <%= experience.field %></p>
+      <p>De <%= experience.start_date %> à <%= experience.end_date %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <section class="profile-content">
+      <%= render "experiences/form", experience: @experience %>
+    </section>
+  </div>
+
+<% else %>
+  <section class="profile-content">
+    <%= render "experiences/form", experience: @experience %>
+  </section>
+<% end %>
+
+
 
 
 </main>

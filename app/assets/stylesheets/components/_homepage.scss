@@ -1,9 +1,5 @@
-.home-background-1 {
-  background: linear-gradient($background-gray, $background-white);
-}
-
-.home-background-2 {
-  background: linear-gradient($background-white, $background-gray);
+.background-color-body {
+  background: linear-gradient(135deg, $background-gray 20%, $white 94%);
 }
 
 .home-container {

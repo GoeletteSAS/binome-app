@@ -12,6 +12,8 @@ class PagesController < ApplicationController
   def dashboard_profile
     @user = current_user
     @experience = Experience.new(user: current_user)
+    @lines_of_work = Search::LINES_OF_WORK
+    @fields = Search::FIELDS
   end
 
   def dashboard_favorites

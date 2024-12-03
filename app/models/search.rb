@@ -14,15 +14,15 @@ class Search < ApplicationRecord
   end
 
   LINES_OF_WORK = [
-    "ventes",
-    "production",
-    "achats",
-    "maintenance",
-    "logistique",
-    "marketing",
-    "comptabilité",
-    "contrôle de gestion",
-    "trésorerie"
+    "Ventes",
+    "Production",
+    "Achats",
+    "Maintenance",
+    "Logistique",
+    "Marketing",
+    "Comptabilité",
+    "Contrôle de gestion",
+    "Trésorerie"
   ]
 
   FIELDS = [

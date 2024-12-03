@@ -1,7 +1,5 @@
 .tabs-background {
-  padding-left: 24px;
-  padding-top: 24px;
-  padding-bottom: 32px;
+  padding: 1.5rem;
 }
 
 .tabs-titles {
@@ -13,3 +11,12 @@
   margin-bottom: 24px;
 }
 
+.tabs-with-pics {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tabs-buttons {
+  display: flex;
+  gap: 10px;
+}

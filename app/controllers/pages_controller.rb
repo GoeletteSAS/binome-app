@@ -16,4 +16,8 @@ class PagesController < ApplicationController
   def dashboard_favorites
     @user = current_user
   end
+
+  def dashboard_chatrooms
+    @chatrooms = current_user.chatrooms
+  end
 end

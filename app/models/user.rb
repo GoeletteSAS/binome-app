@@ -7,8 +7,14 @@ class User < ApplicationRecord
   has_many :experiences, dependent: :destroy
   has_many :searches, dependent: :destroy
   has_one_attached :photo, dependent: :destroy
+  has_many :chatrooms_as_user_1, class_name: "Chatroom", foreign_key: :user_1_id
+  has_many :chatrooms_as_user_2, class_name: "Chatroom", foreign_key: :user_2_id
 
   def current_experience
     experiences.find_by(is_current: true)
+  end
+
+  def chatrooms
+    Chatroom.where('user_1_id = :user_id OR user_2_id = :user_id', user_id: id)
   end
 end

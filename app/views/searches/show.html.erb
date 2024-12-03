@@ -4,53 +4,75 @@
       <% @matching_users.each do |matching_user| %>
         <% @user = User.find(matching_user.id) %>
         <div class="profile-card">
-          <div class="profile-subcard-with-photo">
-            <div>
+          <div class="profile-subcard">
+            <div class="profile-info">
               <% if @user.photo.attached? %>
               <%= cl_image_tag @user.photo.key, crop: :fill, class: "img-fluid" %>
               <% else %>
                 <%= image_tag "default-user.svg", crop: :fill, alt: "default-profile-photo"%>
               <% end %>
-              <i class="fas fa-star"></i>
-            </div>
-            <div class="profile-info">
               <h3 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h3>
-              <p class="profile-email"><i class="fas fa-envelope" style="margin-right:10px;"></i>
-              <% if @user.email.length > 20 %>
-                <% regex_after_arobase = /@.*$/%>
-                <% if @user.email.match(regex_after_arobase)[0].length > 12%>
-                  <% regex_twelve_letters = /.{15}/%>
-                  <% twelve_letters = @user.email.match(regex_twelve_letters)[0] %>
-                  <%= twelve_letters%>...
-                <% else%>
-                  <%first_letter_email = /^./%>
-                  <%= @user.email.match(first_letter_email)[0]%>...<%=@user.email.match(regex_after_arobase)[0] %>
-                <% end %>
-              <% else%>
-                <%= @user.email%>
-              <% end%>
-              </p>
+              <div class="mail-and-pic">
+                <div>
+                <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <p class="profile-email">
+                  <% if @user.email.length > 20 %>
+                    <% regex_after_arobase = /@.*$/%>
+                    <% if @user.email.match(regex_after_arobase)[0].length > 12%>
+                      <% regex_twelve_letters = /.{15}/%>
+                      <% twelve_letters = @user.email.match(regex_twelve_letters)[0] %>
+                      <%= twelve_letters%>...
+                    <% else%>
+                      <%first_letter_email = /^./%>
+                      <%= @user.email.match(first_letter_email)[0]%>...<%=@user.email.match(regex_after_arobase)[0] %>
+                    <% end %>
+                  <% else%>
+                    <%= @user.email%>
+                  <% end%>
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="profile-experiences">
-            <% @user.experiences.where(line_of_work: @search.line_of_work, field: @search.field).each do |experience| %>
-              <div class="experience-item">
-                <p><i class="fas fa-briefcase"></i> <strong>Fonction:</strong> <%= experience.line_of_work %></p>
-                <p><i class="fas fa-industry"></i> <strong>Secteur:</strong> <%= experience.field %></p>
-                <p><i class="fas fa-map-marker-alt"></i> <strong>Lieu:</strong> <%= experience.address %></p>
-
+            <div class="profile-icons-box">
+              <%= button_to dashboard_chatrooms_path, method: :get, data: {turbo: false} do %>
+                <i class="fa-regular fa-message"></i>
+              <% end %>
               <% if current_user.favorites.exists?(user_2_id: @user.id) %>
                 <!-- Si l'utilisateur a déjà favorisé ce profil, on affiche l'étoile pleine -->
-                <%= button_to favorites_path(user_2_id: @user.id), method: :post, data: {turbo: false}, class: "favorite-icon" do %>
-                  <i class="fa-solid fa-star"></i> <!-- L'étoile pleine si déjà favori -->
+                <%= button_to favorites_path(user_2_id: @user.id), method: :post, data: {turbo: false} do %>
+                <i class="fa-solid fa-star text-warning"></i>
+                <!-- L'étoile pleine si déjà favori -->
                 <% end %>
               <% else %>
                 <!-- Si l'utilisateur n'a pas encore favorisé ce profil, on affiche l'étoile vide -->
-                <%= button_to favorites_path(user_2_id: @user.id), method: :post, data: {turbo: false}, class: "favorite-icon" do %>
-                  <i class="fa-regular fa-star"></i> <!-- L'étoile vide si non favori -->
+                <%= button_to favorites_path(user_2_id: @user.id), method: :post, data: {turbo: false} do%>
+                <i class="fa-regular fa-star"></i>
+                <!-- L'étoile vide si non favori -->
                 <% end %>
               <% end %>
+            </div>
+          </div>
+
+          <div class="separator"></div>
+
+          <div class="profile-experiences">
+            <% @user.experiences.where(line_of_work: @search.line_of_work, field: @search.field).each do |experience| %>
+              <div class="experience-section">
+                <div class="experience-item">
+                <i class="fas fa-briefcase"></i>
+                <p><strong>Fonction:</strong> <%= experience.line_of_work %></p>
+                </div>
+                <div class="experience-item">
+                <i class="fas fa-industry"></i>
+                <p><strong>Secteur:</strong> <%= experience.field %></p>
+                </div>
+                <div class="experience-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p><strong>Lieu:</strong> <%= experience.address %></p>
+                </div>
+
 
               </div>
             <% end %>

@@ -10,9 +10,9 @@ User.destroy_all
 # base de données expériences et search
 
 LINES_OF_WORK = [
-  "ventes",
-  "production",
-  "marketing"
+  "Ventes",
+  "Production",
+  "Marketing"
 ]
 
 FIELDS = [
@@ -52,7 +52,7 @@ experiences << Experience.create!(
   start_date: Date.new(2020, 9, 1),
   end_date: nil,
   is_current: true,
-  line_of_work: "ventes",
+  line_of_work: "Ventes",
   field: "Textile, Habillement & Chaussure",
   address: "Paris, France",
   latitude: 48.856613,
@@ -71,7 +71,7 @@ searches << Search.create!(
 puts "creating Virginie"
 users << User.create!(
   first_name: "Virginie",
-  last_name: "Forcet",
+  last_name: "Bonnet",
   username: "Virginie73",
   email: "Virginie@holiday.fr",
   password: "password",
@@ -87,7 +87,7 @@ experiences << Experience.create!(
   start_date: Date.new(2019, 3, 15),
   end_date: nil,
   is_current: true,
-  line_of_work: "marketing",
+  line_of_work: "Marketing",
   field: "Textile, Habillement & Chaussure",
   address: "Lyon, France",
   latitude: 45.764043,
@@ -123,7 +123,7 @@ experiences << Experience.create!(
   start_date: Date.new(2021, 6, 1),
   end_date: nil,
   is_current: true,
-  line_of_work: "ventes",
+  line_of_work: "Ventes",
   field: "Transports & Logistique",
   address: "Paris, France",
   latitude: 44.837789,
@@ -159,7 +159,7 @@ experiences << Experience.create!(
   start_date: Date.new(2015, 6, 1),
   end_date: nil,
   is_current: true,
-  line_of_work: "production",
+  line_of_work: "Production",
   field: "Textile, Habillement & Chaussure",
   address: "Lyon, France",
   latitude: 44.837789,
@@ -231,7 +231,7 @@ experiences << Experience.create!(
   start_date: Date.new(2016, 3, 15),
   end_date: nil,
   is_current: true,
-  line_of_work: "marketing",
+  line_of_work: "Marketing",
   field: "Textile, Habillement & Chaussure",
   address: "Lyon, France",
   latitude: 45.764043,
@@ -267,7 +267,7 @@ experiences << Experience.create!(
   start_date: Date.new(2022, 6, 1),
   end_date: nil,
   is_current: true,
-  line_of_work: "production",
+  line_of_work: "Production",
   field: "Transports & Logistique",
   address: "Lyon, France",
   latitude: 44.837789,
@@ -303,7 +303,7 @@ experiences << Experience.create!(
   start_date: Date.new(2015, 6, 1),
   end_date: nil,
   is_current: true,
-  line_of_work: "production",
+  line_of_work: "Production",
   field: "Transports & Logistique",
   address: "Lyon, France",
   latitude: 44.837789,
@@ -337,7 +337,7 @@ Experience.create!(
     user: User.last,
     start_date: "2020-02-02",
     is_current: true,
-    line_of_work: "marketing",
+    line_of_work: "mMrketing",
     field: "Textile, Habillement & Chaussure",
     address: "Paris, France"
   )
@@ -346,7 +346,7 @@ Search.create!(
   user: User.last,
   address: "Lyon, France",
   field: "Textile, Habillement & Chaussure",
-  line_of_work: "marketing",
+  line_of_work: "Marketing",
   is_offering: false,
 )
 
@@ -354,7 +354,7 @@ Search.create!(
   user: User.last,
   address: "Paris, France",
   field: "Textile, Habillement & Chaussure",
-  line_of_work: "ventes",
+  line_of_work: "Ventes",
   is_offering: false,
 )
 puts 'Seed complete! 🎉'

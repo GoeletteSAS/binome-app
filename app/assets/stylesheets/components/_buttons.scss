@@ -1,12 +1,12 @@
 .round-button {
   background-image: asset-url("https://www.iconpacks.net/icons/2/free-plus-icon-3107-thumb.png");
-  color: black;
+  color: $black-primary;
   font-weight: bold;
-  text-shadow: #FC0 1px 0 10px;
+  text-shadow: $box-shadow-secondary 1px 0 10px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: $mid-green;
+  background-color: $dark-gray-secondary;
   border-style: none;
   display: flex;
   justify-content: center;
@@ -15,6 +15,51 @@
   text-decoration: none;
 
   &:hover {
-    background-color: $dark-green;
+    background-color: $black-secondary;
   }
+}
+
+.main-cta-home {
+  font-size: 24px;
+  color: $white-secondary;
+  border-radius: 43px;
+  padding-inline: 1.5rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  background-color: $gray-secondary;
+  transition: 0.2s ease;
+  text-shadow: 0px 1px 3px $light-shadow-secondary;
+  box-shadow: 0px 3px 5px $light-shadow-secondary;
+}
+
+
+.main-cta-home:hover {
+  transform: scale(1.005);
+  opacity: 92%;
+  box-shadow: -14 13px 2px $box-shadow-secondary;
+
+}
+
+.secondary-cta {
+  font-size: 1rem;
+  color: $white-secondary;
+  text-shadow: 0 0px 1px $light-shadow-secondary;
+  border-radius: var(--bs-border-radius-pill);
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  background-color: $gray-secondary;
+  text-shadow: -1px 2px 4px $light-shadow-secondary;
+  transition: 0.2s ease;
+  text-align: center;
+  vertical-align: middle;
+  margin-inline: 5px;
+}
+
+
+.secondary-cta:hover {
+  transform: scale(1.005);
+  opacity: 95%;
+  box-shadow: -14 13px 2px $box-shadow-secondary;
 }

@@ -53,7 +53,7 @@ experiences << Experience.create!(
   start_date: Date.new(2020, 9, 1),
   end_date: nil,
   is_current: true,
-  line_of_work: "Ventes",
+  line_of_work: "Marketing",
   field: "Textile, Habillement & Chaussure",
   address: "Paris, France",
   latitude: 48.856613,
@@ -90,7 +90,7 @@ experiences << Experience.create!(
   is_current: true,
   line_of_work: "Marketing",
   field: "Textile, Habillement & Chaussure",
-  address: "Lyon, France",
+  address: "Paris, France",
   latitude: 45.764043,
   longitude: 4.835659
 )
@@ -125,7 +125,7 @@ experiences << Experience.create!(
   end_date: nil,
   is_current: true,
   line_of_work: "Ventes",
-  field: "Transports & Logistique",
+  field: "Textile, Habillement & Chaussure",
   address: "Paris, France",
   latitude: 44.837789,
   longitude: -0.57918
@@ -160,9 +160,9 @@ experiences << Experience.create!(
   start_date: Date.new(2015, 6, 1),
   end_date: nil,
   is_current: true,
-  line_of_work: "Production",
+  line_of_work: "Ventes",
   field: "Textile, Habillement & Chaussure",
-  address: "Lyon, France",
+  address: "Paris, France",
   latitude: 44.837789,
   longitude: -0.57918
 )
@@ -196,8 +196,8 @@ experiences << Experience.create!(
   start_date: Date.new(2003, 9, 1),
   end_date: nil,
   is_current: true,
-  line_of_work: "ventes",
-  field: "Services-aux-entreprises",
+  line_of_work: "Marketing",
+  field: "Textile, Habillement & Chaussure",
   address: "Paris, France",
   latitude: 48.856613,
   longitude: 2.352222
@@ -234,7 +234,7 @@ experiences << Experience.create!(
   is_current: true,
   line_of_work: "Marketing",
   field: "Textile, Habillement & Chaussure",
-  address: "Lyon, France",
+  address: "Paris, France",
   latitude: 45.764043,
   longitude: 4.835659
 )
@@ -268,9 +268,9 @@ experiences << Experience.create!(
   start_date: Date.new(2022, 6, 1),
   end_date: nil,
   is_current: true,
-  line_of_work: "Production",
-  field: "Transports & Logistique",
-  address: "Lyon, France",
+  line_of_work: "Ventes",
+  field: "Textile, Habillement & Chaussure",
+  address: "Paris, France",
   latitude: 44.837789,
   longitude: -0.57918
 )
@@ -304,9 +304,9 @@ experiences << Experience.create!(
   start_date: Date.new(2015, 6, 1),
   end_date: nil,
   is_current: true,
-  line_of_work: "Production",
-  field: "Transports & Logistique",
-  address: "Lyon, France",
+  line_of_work: "Ventes",
+  field: "Textile, Habillement & Chaussure",
+  address: "Paris, France",
   latitude: 44.837789,
   longitude: -0.57918
 )

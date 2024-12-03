@@ -5,6 +5,14 @@
         <% @user = User.find(matching_user.id) %>
         <div class="profile-card">
           <div class="profile-subcard-with-photo">
+            <div>
+              <% if @user.photo.attached? %>
+              <%= cl_image_tag @user.photo.key, crop: :fill, class: "img-fluid" %>
+              <% else %>
+                <%= image_tag "default-user.svg", crop: :fill, alt: "default-profile-photo"%>
+              <% end %>
+              <i class="fas fa-star"></i>
+            </div>
             <div class="profile-info">
               <h3 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h3>
               <p class="profile-email"><i class="fas fa-envelope" style="margin-right:10px;"></i>
@@ -22,14 +30,6 @@
                 <%= @user.email%>
               <% end%>
               </p>
-            </div>
-            <div>
-              <% if @user.photo.attached? %>
-              <%= cl_image_tag @user.photo.key, crop: :fill, class: "img-fluid" %>
-              <% else %>
-                <%= image_tag "default-user.svg", height: 300, width: 400, crop: :fill, alt: "default-profile-photo"%>
-              <% end %>
-              <i class="fas fa-star"></i>
             </div>
           </div>
 

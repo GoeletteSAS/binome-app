@@ -22,61 +22,177 @@ FIELDS = [
 ]
 
 FRENCH_CITIES = [
-  "Paris", "Lyon", "Marseille",
+  "Paris", "Lyon", "Marseille"
 ]
 
-puts 'Creating users...'
+puts 'Creating users and experiences....'
 users = []
+experiences = []
+searches = []
 
-# users figés
+# users & experiences figés
+
+puts "creating Pascal"
+
 users << User.create!(
-  first_name: "Baudoin",
-  last_name: "De Bayser",
-  username: "baudoin92",
-  email: "baudoin@baudoin.fr",
+  first_name: "Pascal",
+  last_name: "Auribaud",
+  username: "Pascal92",
+  email: "pascal@hotmail.fr",
   password: "password",
   date_of_birth: Date.new(1992, 8, 25)
 )
 
-users << User.create!(
-  first_name: "Odile",
-  last_name: "Fayad",
-  username: "odile93",
-  email: "odile@odile.fr",
-  password: "password",
-  date_of_birth: Date.new(1993, 12, 7)
-)
+photo = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/c_thumb,w_200,g_face/v1733134021/istockphoto-498256634-612x612_wnckma.jpg").open
+User.last.photo.attach(io: photo, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")
+User.last.save
 
-users << User.create!(
-  first_name: "Santiana",
-  last_name: "Irakoze",
-  username: "santiana98",
-  email: "santiana@santiana.fr",
-  password: "password",
-  date_of_birth: Date.new(1998, 8, 7)
-)
-
-# users générés
-
-100.times do
-  users << User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    username: Faker::Internet.username,
-    email: Faker::Internet.email,
-    password: "password",
-    date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65)
-    )
-end
-
-puts 'Creating experiences...'
-experiences = []
-
-# experiences figés
-
-experience1 = Experience.create!(
-  user: users[0],
+experiences << Experience.create!(
+  user: users.last,
   start_date: Date.new(2020, 9, 1),
+  end_date: nil,
+  is_current: true,
+  line_of_work: "ventes",
+  field: "Textile, Habillement & Chaussure",
+  address: "Paris, France",
+  latitude: 48.856613,
+  longitude: 2.352222
+)
+
+searches << Search.create!(
+  user: users.last,
+  experience: experiences.last,
+  line_of_work: experiences.last.line_of_work,
+  field: experiences.last.field,
+  address: experiences.last.address,
+  is_offering: true
+)
+
+puts "creating Virginie"
+users << User.create!(
+  first_name: "Virginie",
+  last_name: "Forcet",
+  username: "Virginie73",
+  email: "Virginie@holiday.fr",
+  password: "password",
+  date_of_birth: Date.new(1973, 12, 7)
+)
+
+photo = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/c_thumb,w_200,g_face/v1732812152/rsbcsegxvjbqumd5vuvt.png").open
+User.last.photo.attach(io: photo, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")
+User.last.save
+
+experiences << Experience.create!(
+  user: users.last,
+  start_date: Date.new(2019, 3, 15),
+  end_date: nil,
+  is_current: true,
+  line_of_work: "marketing",
+  field: "Textile, Habillement & Chaussure",
+  address: "Lyon, France",
+  latitude: 45.764043,
+  longitude: 4.835659
+)
+
+searches << Search.create!(
+  user: users.last,
+  experience: experiences.last,
+  line_of_work: experiences.last.line_of_work,
+  field: experiences.last.field,
+  address: experiences.last.address,
+  is_offering: true
+)
+
+puts "creating Sophie"
+
+users << User.create!(
+  first_name: "Sophie",
+  last_name: "Ianila",
+  username: "Sophie98",
+  email: "sophie@yahoo.fr",
+  password: "password",
+  date_of_birth: Date.new(1984, 8, 7)
+)
+
+photo = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/c_thumb,w_200,g_face/v1732812026/okuu9ml6soz8xm1tsgqk.jpg").open
+User.last.photo.attach(io: photo, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")
+User.last.save
+
+experiences << Experience.create!(
+  user: users.last,
+  start_date: Date.new(2021, 6, 1),
+  end_date: nil,
+  is_current: true,
+  line_of_work: "ventes",
+  field: "Transports & Logistique",
+  address: "Paris, France",
+  latitude: 44.837789,
+  longitude: -0.57918
+)
+
+searches << Search.create!(
+  user: users.last,
+  experience: experiences.last,
+  line_of_work: experiences.last.line_of_work,
+  field: experiences.last.field,
+  address: experiences.last.address,
+  is_offering: true
+)
+
+puts "creating Justin"
+
+users << User.create!(
+  first_name: "Justin",
+  last_name: "Bridou",
+  username: "Surfing_Justin",
+  email: "justin@bridao.fr",
+  password: "password",
+  date_of_birth: Date.new(1994, 8, 7)
+)
+
+photo = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/c_thumb,w_200,g_face/v1732811206/samples/smile.jpg").open
+User.last.photo.attach(io: photo, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")
+User.last.save
+
+experiences << Experience.create!(
+  user: users.last,
+  start_date: Date.new(2015, 6, 1),
+  end_date: nil,
+  is_current: true,
+  line_of_work: "production",
+  field: "Textile, Habillement & Chaussure",
+  address: "Lyon, France",
+  latitude: 44.837789,
+  longitude: -0.57918
+)
+
+searches << Search.create!(
+  user: users.last,
+  experience: experiences.last,
+  line_of_work: experiences.last.line_of_work,
+  field: experiences.last.field,
+  address: experiences.last.address,
+  is_offering: true
+)
+
+puts "creating Stéphane"
+
+users << User.create!(
+  first_name: "Stéphane",
+  last_name: "Jacquot",
+  username: "StephaneJ",
+  email: "Stephane@wanadoo.fr",
+  password: "password",
+  date_of_birth: Date.new(1970, 8, 25)
+)
+
+photo = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/c_thumb,w_200,g_face/v1733134021/St%C3%A9phane_qxhsn4.jpg").open
+User.last.photo.attach(io: photo, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")
+User.last.save
+
+experiences << Experience.create!(
+  user: users.last,
+  start_date: Date.new(2003, 9, 1),
   end_date: nil,
   is_current: true,
   line_of_work: "ventes",
@@ -85,89 +201,125 @@ experience1 = Experience.create!(
   latitude: 48.856613,
   longitude: 2.352222
 )
-experiences << experience1
 
-experience2 = Experience.create!(
-  user: users[1],
-  start_date: Date.new(2019, 3, 15),
-  end_date: Date.new(2023, 12, 31),
-  is_current: false,
+searches << Search.create!(
+  user: users.last,
+  experience: experiences.last,
+  line_of_work: experiences.last.line_of_work,
+  field: experiences.last.field,
+  address: experiences.last.address,
+  is_offering: true
+)
+
+puts "creating Pauline"
+
+users << User.create!(
+  first_name: "Pauline",
+  last_name: "Forcet",
+  username: "Paulinette",
+  email: "pauline@gmail.com",
+  password: "password",
+  date_of_birth: Date.new(1985, 12, 7)
+)
+
+photo = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/c_thumb,w_200,g_face/v1733134021/1000_F_105632490_xr18ylLjgVkBhgwu7MefPDN7PjmyAqSy_dhubdi.jpg").open
+User.last.photo.attach(io: photo, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")
+User.last.save
+
+experiences << Experience.create!(
+  user: users.last,
+  start_date: Date.new(2016, 3, 15),
+  end_date: nil,
+  is_current: true,
   line_of_work: "marketing",
   field: "Textile, Habillement & Chaussure",
   address: "Lyon, France",
   latitude: 45.764043,
   longitude: 4.835659
 )
-experiences << experience2
 
-experience3 = Experience.create!(
-  user: users[2],
-  start_date: Date.new(2021, 6, 1),
+searches << Search.create!(
+  user: users.last,
+  experience: experiences.last,
+  line_of_work: experiences.last.line_of_work,
+  field: experiences.last.field,
+  address: experiences.last.address,
+  is_offering: true
+)
+
+puts "creating Maiza"
+
+users << User.create!(
+  first_name: "Maizena",
+  last_name: "Tiroud",
+  username: "TiMaiza",
+  email: "maiza@hourra.fr",
+  password: "password",
+  date_of_birth: Date.new(1987, 8, 7)
+)
+
+photo = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/c_thumb,w_200,g_face/v1733134196/istockphoto-914875306-612x612_mz6b5g.jpg").open
+User.last.photo.attach(io: photo, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")
+User.last.save
+
+experiences << Experience.create!(
+  user: users.last,
+  start_date: Date.new(2022, 6, 1),
   end_date: nil,
   is_current: true,
   line_of_work: "production",
   field: "Transports & Logistique",
-  address: "Marseille, France",
+  address: "Lyon, France",
   latitude: 44.837789,
   longitude: -0.57918
 )
-experiences << experience3
 
-# experiences générés
-100.times do
-  experiences << Experience.create!(
-    user: users.sample,
-    start_date: Faker::Date.backward(days: rand(365..1825)),
-    end_date: [Faker::Date.backward(days: rand(0..364)), nil].sample,
-    is_current: true,
-    line_of_work: LINES_OF_WORK.sample,
-    field: FIELDS.sample,
-    address: "#{FRENCH_CITIES.sample}, France"
-  )
-end
-
-
-puts 'Creating searches...'
-searches = []
-
-searches <<  Search.new(
-  user: users[0],
-  experience: experiences.sample,
-  line_of_work: LINES_OF_WORK.sample,
-  field: FIELDS.sample,
-  address: Faker::Address.full_address,
-  is_offering: Faker::Boolean.boolean
+searches << Search.create!(
+  user: users.last,
+  experience: experiences.last,
+  line_of_work: experiences.last.line_of_work,
+  field: experiences.last.field,
+  address: experiences.last.address,
+  is_offering: true
 )
 
-searches <<  Search.new(
-  user: users[1],
-  experience: experiences.sample,
-  line_of_work: LINES_OF_WORK.sample,
-  field: FIELDS.sample,
-  address: Faker::Address.full_address,
-  is_offering: Faker::Boolean.boolean
+puts "creating Justine"
+
+users << User.create!(
+  first_name: "Justine",
+  last_name: "Tacquillard",
+  username: "justine_HUG",
+  email: "justine@hodao.fr",
+  password: "password",
+  date_of_birth: Date.new(1984, 8, 7)
 )
 
-searches <<  Search.new(
-  user: users[2],
-  experience: experiences.sample,
-  line_of_work: LINES_OF_WORK.sample,
-  field: FIELDS.sample,
-  address: Faker::Address.full_address,
-  is_offering: Faker::Boolean.boolean
+photo = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/c_thumb,w_200,g_face/v1732812166/txv5zwjqk3chyv5dozzf.jpg").open
+User.last.photo.attach(io: photo, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")
+User.last.save
+
+experiences << Experience.create!(
+  user: users.last,
+  start_date: Date.new(2015, 6, 1),
+  end_date: nil,
+  is_current: true,
+  line_of_work: "production",
+  field: "Transports & Logistique",
+  address: "Lyon, France",
+  latitude: 44.837789,
+  longitude: -0.57918
 )
 
-# searches générés
-100.times do
-  searches << Search.create!(
-    user: users.sample,
-    experience: experiences.sample,
-    line_of_work: LINES_OF_WORK.sample,
-    field: FIELDS.sample,
-    address: "#{FRENCH_CITIES.sample}, France",
-    is_offering: Faker::Boolean.boolean
-    )
-end
+searches << Search.create!(
+  user: users.last,
+  experience: experiences.last,
+  line_of_work: experiences.last.line_of_work,
+  field: experiences.last.field,
+  address: experiences.last.address,
+  is_offering: true
+)
+
+puts "creating Juliette"
 
 users << User.create!(
   first_name: "Juliette",
@@ -177,8 +329,9 @@ users << User.create!(
   password: "password",
   date_of_birth: "1990-09-13"
 )
-# photojuliette = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/v1732812190/k77ntqucqxeverih1qlr.jpg").open
-# photojuliette.photo.attach(io: photojuliette, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")
+photojuliette = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/c_thumb,w_200,g_face/v1732812190/k77ntqucqxeverih1qlr.jpg").open
+User.last.photo.attach(io: photojuliette, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")
+User.last.save
 
 Experience.create!(
     user: User.last,
@@ -189,4 +342,19 @@ Experience.create!(
     address: "Paris, France"
   )
 
+Search.create!(
+  user: User.last,
+  address: "Lyon, France",
+  field: "Textile, Habillement & Chaussure",
+  line_of_work: "marketing",
+  is_offering: false,
+)
+
+Search.create!(
+  user: User.last,
+  address: "Paris, France",
+  field: "Textile, Habillement & Chaussure",
+  line_of_work: "ventes",
+  is_offering: false,
+)
 puts 'Seed complete! 🎉'

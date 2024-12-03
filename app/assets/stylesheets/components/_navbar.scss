@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $white-primary;
+  color: $dark-gray-secondary;
+  max-height: 9vh;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,6 +14,25 @@
 }
 
 .nav-background {
-  background-color: $light-beige;
+  background-color: $background-gray;
   padding-left: 16px;
 }
+
+
+// .navbar-custom {
+//   background-color: rgb(241, 234, 222);
+//   display: flex;
+//   padding-left: 80px;
+//   flex-direction: row;
+//   flex-wrap: nowrap;
+//   align-content: normal;
+//   justify-content: flex-start;
+//   align-items: center;
+// }
+
+// @media (min-width: 992px) {
+//   .navbar-expand-lg {
+//       flex-wrap: nowrap;
+//       justify-content: flex-start;
+//   }
+// }

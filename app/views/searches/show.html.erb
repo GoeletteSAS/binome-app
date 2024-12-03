@@ -1,6 +1,5 @@
 <%= turbo_frame_tag "preview" do %>
   <% if @matching_users.any? %>
-    <h2 class="search-title">Profils correspondants</h2>
     <div class="matching-profiles">
       <% @matching_users.each do |matching_user| %>
         <% @user = User.find(matching_user.id) %>
@@ -8,19 +7,33 @@
           <div class="profile-subcard-with-photo">
             <div class="profile-info">
               <h3 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h3>
-              <p class="profile-email"><i class="fas fa-envelope"></i> <%= @user.email %></p>
+              <p class="profile-email"><i class="fas fa-envelope" style="margin-right:10px;"></i>
+              <% if @user.email.length > 20 %>
+                <% regex_after_arobase = /@.*$/%>
+                <% if @user.email.match(regex_after_arobase)[0].length > 12%>
+                  <% regex_twelve_letters = /.{15}/%>
+                  <% twelve_letters = @user.email.match(regex_twelve_letters)[0] %>
+                  <%= twelve_letters%>...
+                <% else%>
+                  <%first_letter_email = /^./%>
+                  <%= @user.email.match(first_letter_email)[0]%>...<%=@user.email.match(regex_after_arobase)[0] %>
+                <% end %>
+              <% else%>
+                <%= @user.email%>
+              <% end%>
+              </p>
             </div>
             <div>
               <% if @user.photo.attached? %>
               <%= cl_image_tag @user.photo.key, crop: :fill, class: "img-fluid" %>
               <% else %>
-                <%= image_tag "default-user.svg", alt: "default-profile-photo"%>
+                <%= image_tag "default-user.svg", height: 300, width: 400, crop: :fill, alt: "default-profile-photo"%>
               <% end %>
+              <i class="fas fa-star"></i>
             </div>
           </div>
 
           <div class="profile-experiences">
-            <h4 class="experiences-title">Expériences</h4>
             <% @user.experiences.where(line_of_work: @search.line_of_work, field: @search.field).each do |experience| %>
               <div class="experience-item">
                 <p><i class="fas fa-briefcase"></i> <strong>Fonction:</strong> <%= experience.line_of_work %></p>
@@ -29,6 +42,7 @@
               </div>
             <% end %>
           </div>
+
         </div>
       <% end %>
     </div>

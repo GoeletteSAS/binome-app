@@ -26,12 +26,12 @@
       </ul>
 
       <% if user_signed_in? %>
-        <%= link_to "Mon tableau de bord", dashboard_searches_path, class: "btn btn-primary btn-md me-3 px-3 py-1 rounded-pill" %>
+        <%= link_to "Mon tableau de bord", dashboard_searches_path, class: "secondary-cta" %>
         <%#= link_to "Se déconnecter", destroy_user_session_path, data: { turbo_method: :delete} %>
-        <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "btn btn-primary btn-md px-3 py-1 rounded-pill" %>
+        <%= link_to "Se déconnecter", destroy_user_session_path, data: { "turbo-method": :delete }, class: "secondary-cta" %>
       <% else %>
-        <%= link_to "Créer un compte", new_user_registration_path, class: "btn btn-primary btn-md me-3 px-3 py-1 rounded-pill" %>
-        <%= link_to "Se connecter", new_user_session_path, class: "btn btn-primary btn-md px-3 py-1 rounded-pill" %>
+        <%= link_to "Créer un compte", new_user_registration_path, class: "secondary-cta" %>
+        <%= link_to "Se connecter", new_user_session_path, class: "secondary-cta" %>
       <% end %>
 
     </div>

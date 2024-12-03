@@ -4,6 +4,7 @@
   flex-direction: column;
 }
 
+
 .chatroom-header {
   padding: 1rem;
   border-bottom: 1px solid #eee;
@@ -17,7 +18,6 @@
 .messages {
   flex-grow: 1;
   overflow-y: auto;
-  padding: 1rem;
 }
 
 .message-wrapper {
@@ -34,7 +34,7 @@
   }
 
   &.message-received .message {
-    background-color: #f1f0f0;
+    background-color: $light-beige;
   }
 }
 
@@ -51,11 +51,15 @@
 }
 
 .message-form {
-  padding: 1rem;
   background-color: white;
-  border-top: 1px solid #eee;
   display: flex;
-  gap: 1rem;
+  
+  .message_content {
+    margin-bottom: 0 !important; // This will override the mb-3
+  }
+  .text.required.message_content {
+    margin-bottom: 0 !important;
+  }
 }
 
 .card {

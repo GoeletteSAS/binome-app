@@ -19,6 +19,20 @@
   }
 }
 
+.devise-btn {
+  margin-top : 8px;
+  margin-bottom: 16px;
+  border-style: 1px solid;
+  border-radius: 8px;
+  background-color: $gray-secondary;
+
+  &:hover {
+    transform: scale(1.005);
+    opacity: 92%;
+    box-shadow: -14 13px 2px $box-shadow-secondary;
+  }
+}
+
 .main-cta-home {
   font-size: 24px;
   color: $white-secondary;

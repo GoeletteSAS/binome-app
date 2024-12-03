@@ -12,10 +12,13 @@ class Message < ApplicationRecord
 
   #The broadcasting logic ensures messages are sent to both participants.
   after_create_commit -> {
-    broadcast_append_to chatroom,
-                       partial: "messages/message",
-                       locals: { message: self, user: sender },
-                       target: "messages"
+    # Create a unique stream name for each user in the chatroom
+    [self.chatroom.user_1, self.chatroom.user_2].each do |recipient|
+      broadcast_append_to [self.chatroom, recipient, "messages"],
+                         partial: "messages/message",
+                         locals: { message: self, user: recipient },
+                         target: "messages"
+    end
   }
 
   #Returns the other user in the chatroom

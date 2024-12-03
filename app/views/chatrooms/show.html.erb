@@ -1,30 +1,25 @@
 <%= turbo_frame_tag "chatroom_content" do %>
   <div class="container chat">
-    <h1>Chat with <%= @chatroom.other_user(current_user).last_name %></h1>
-
-    <%= turbo_stream_from @chatroom %>
+    <h3>Chat avec <%= @chatroom.other_user(current_user).first_name %></h3>
+    <%= turbo_stream_from [@chatroom, current_user, "messages"] %>
     <div id="messages" class="messages">
       <% @chatroom.messages.each do |message| %>
         <%= render "messages/message", message: message, user: current_user %>
       <% end %>
     </div>
 
-    <div class="message-form bg-white border-top p-3 sticky-bottom">
-      <%= simple_form_for([@chatroom, Message.new], html: {class: "d-flex",
-         data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }}, remote: true) do |f| %>
-        <div class="d-flex gap-3">
-          <%= f.input :content,
-              label: false,
-              placeholder: "Écrivez un message",
-              input_html: {
-                class: "form-control",
-                style: "min-height: 80px; max-height: 150px; resize: none;",
-                rows: 3
-              } %>
-          <div class="d-flex align-items-end">
-            <%= f.button :submit, "Envoyer", class: "btn btn-primary" %>
-          </div>
-        </div>
+    <div class="message-form bg-white sticky-bottom">
+      <%= simple_form_for [@chatroom, @message],
+          html: {class: "d-flex w-100"},
+          data: { turbo_stream: true,
+                 controller: "reset-form",
+                 action: "turbo:submit-end->reset-form#reset" } do |f| %>
+        <%= f.input :content,
+          label: false,
+          placeholder: "Écrivez un message...",
+          wrapper_html: {class: "flex-grow-1"}
+        %>
+        <%= f.button :submit, "Envoyer", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

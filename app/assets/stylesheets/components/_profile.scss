@@ -1,0 +1,121 @@
+
+.matching-profiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+  padding-top: 0px;
+}
+
+.profile-card {
+  background-color: white;
+  max-width: 400px;
+  // border-radius: 12px;
+  padding-inline: 1.5rem;
+  padding-block: 1.2rem;
+  // box-shadow: 0 4px 6px $box-shadow-primary;
+  box-shadow: 6px 6px 0px 0px $gray-primary;
+  transition: transform 0.2s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+}
+
+.profile-subcard {
+  display: flex;
+  justify-content: space-between;
+  height: fit-content;
+}
+
+.profile-subcard img {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 4rem;
+  height: 4rem;
+}
+
+.profile-info {
+  display : flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 66%;
+  padding-left: 0.8rem;
+}
+
+.profile-name {
+  display: flex;
+  color: $gray-primary;
+  font-weight: 600;
+  width: 150px;
+  align-items: start;
+}
+
+.profile-email {
+  display: flex;
+  align-items: center;
+  color: silver;
+  width: 150px;
+  font-size: 14px;
+}
+
+.mail-and-pic {
+  display: flex;
+  gap: 8px;
+}
+
+.profile-icons-box {
+  display: flex;
+  gap: 8px;
+}
+
+.profile-icons-box button {
+  border: none;
+  background-color: transparent;
+  text-shadow: -1px 2px 4px $light-shadow-secondary;
+  padding: 0;
+  scale: 1.5;
+}
+
+.profile-icons-box button:hover {
+  text-shadow: -1px 2px 1px $light-shadow-secondary;
+  scale: 1.6;
+}
+
+.favorite-profiles {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.separator {
+  height: 2px;
+  width: 98%;
+  margin-bottom: 0.8rem;
+  margin-top: 0.6rem;
+  margin-inline: auto;
+  background-color: $gray-primary;
+}
+
+.experience-section {
+  background-color: $background-white;
+  color: $black-secondary;
+  // border-radius: 8px;
+  padding: 0.8rem;
+  box-shadow: 0 2px 4px $box-shadow-primary;
+  // box-shadow: 6px 6px 0px 0px $gray-secondary;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.experience-item {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.no-results {
+  text-align: center;
+  color: $title-blue;
+  font-size: 1.2rem;
+  padding: 2rem;
+}

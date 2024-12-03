@@ -1,4 +1,12 @@
-.background-color-body {
+.home-background-1 {
+  background: linear-gradient($background-light-gray, $background-white);
+}
+
+.home-background-2 {
+  background: linear-gradient($background-white, $background-light-gray);
+}
+
+  .background-color-body {
   background: linear-gradient(135deg, $background-light-gray 20%, $background-white 94%);
 }
 

@@ -27,13 +27,11 @@ $light-beige:           #f1eade;
 $mid-beige:             #dbc495;
 $dark-beige:            #c1a56f;
 
-$very-light-purple:     rgb(243, 234, 243);
+$very-light-purple:     rgb(241, 237, 241);
 $light-purple:          rgb(173, 112, 145);
 $mid-purple:            rgb(123, 60, 94);
 $dark-purple:           rgb(102, 37, 73);
 $black-purple:          rgb(26, 2, 15);
-$shadow-purple:         rgba(26, 2, 15, 0.2);
-$light-shadow-purple:   rgba(26, 2, 15, 0.08);
 
 
 $very-light-blue:       rgb(190, 228, 242);
@@ -54,8 +52,8 @@ $gray-primary:          $mid-purple;
 $dark-gray-primary:     $dark-purple;
 $black-primary:         $black-purple;
 
-$box-shadow-primary:    $shadow-purple;
-$light-shadow-primary:  $light-shadow-purple;
+$box-shadow-primary:     rgba(26, 2, 15, 0.8);
+$light-shadow-primary:  rgba(26, 2, 15, 0.2);
 
 $background-primary:    $white-primary;
 
@@ -67,13 +65,14 @@ $gray-secondary:        rgb(48, 82, 82);
 $dark-gray-secondary:   rgb(27, 46, 46);
 $black-secondary :      rgb(8, 13, 13);
 
-$box-shadow-secondary:  rgba(8, 13, 13, 0.2);
-$light-shadow-secondary:  rgba(8, 13, 13, 0.08);
+$box-shadow-secondary:  rgba(8, 13, 13, 0.8);
+$light-shadow-secondary:  rgba(8, 13, 13, 0.2);
 
 
 // background colors:
 
 $background-white:      $very-light-beige;
+$background-light-gray: #f9f7f4;
 $background-gray:       $light-beige;
 $background-dark:       $mid-beige;
 $background-black:      $dark-beige;
@@ -109,4 +108,3 @@ $light-blue: #75b9d5;
 $mid-blue: #2295c6;
 $dark-blue: #387c95;
 $title-blue: #5c6ac4;
-

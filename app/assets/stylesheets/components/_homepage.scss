@@ -24,11 +24,12 @@
 .home-with-pic {
   display: flex;
   justify-content: space-between;
-  min-height: 60vh;
+  height: 60vh;
 }
 
 .home-with-pic img{
   align-items: end;
+  box-sizing: border-box;
 }
 
 .home-with-pic span {
@@ -36,9 +37,7 @@
 }
 
 .mini-card-home {
-  margin-inline: 10px;
-  max-width: 280px;
-  min-width: 150 px;
+  width: 16rem;
   text-align: -webkit-center;
   color: $dark-gray-primary;
   align-items: center;
@@ -46,6 +45,7 @@
 
 #promess {
   display: flex;
+  gap: 10px;
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -65,18 +65,8 @@
 
 
 .scroll-down {
-  display: flex;
-  flex-direction: column;
   text-align: center;
   max-height: 5vh;
-}
-i {
-  color: $gray-secondary;
-  font-size: 24px;
-  font-weight: 300;
-  margin:-7px;
-  padding: -15px;
-  text-shadow: -1px 2px 4px $box-shadow-secondary;
 }
 
 .steps-to-jobsharing {

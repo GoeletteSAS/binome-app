@@ -338,7 +338,7 @@ Experience.create!(
     user: User.last,
     start_date: "2020-02-02",
     is_current: true,
-    line_of_work: "mMrketing",
+    line_of_work: "Marketing",
     field: "Textile, Habillement & Chaussure",
     address: "Paris, France"
   )

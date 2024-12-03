@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get :init, as: :init
     end
   end
+  resources :favorites, only: [:create, :destroy]
 
   resources :chatrooms, only: [:index, :show, :create] do
     resources :messages, only: [:create]

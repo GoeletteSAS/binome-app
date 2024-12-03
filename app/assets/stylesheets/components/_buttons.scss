@@ -2,7 +2,7 @@
   background-image: asset-url("https://www.iconpacks.net/icons/2/free-plus-icon-3107-thumb.png");
   color: $black-primary;
   font-weight: bold;
-  text-shadow: $box-shadow-secondary 1px 0 10px;
+  text-shadow: $light-shadow-secondary 1px 0 10px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -27,9 +27,9 @@
   background-color: $gray-secondary;
 
   &:hover {
-    transform: scale(1.005);
+    // transform: scale(1.005);
     opacity: 92%;
-    box-shadow: -14 13px 2px $box-shadow-secondary;
+    box-shadow: -14px 13px 2px $light-shadow-secondary;
   }
 }
 
@@ -48,10 +48,14 @@
 
 
 .main-cta-home:hover {
-  transform: scale(1.005);
-  opacity: 92%;
-  box-shadow: -14 13px 2px $box-shadow-secondary;
+  transform: translateY(-1.5px);
+  opacity: 88%;
+  box-shadow: 2px 3px 1px $box-shadow-secondary;
+}
 
+.main-cta-home:active {
+  transform: translateY(1.5px);
+  box-shadow: 2px 3px 0px $box-shadow-secondary;
 }
 
 .secondary-cta {
@@ -73,7 +77,37 @@
 
 
 .secondary-cta:hover {
-  transform: scale(1.005);
-  opacity: 95%;
-  box-shadow: -14 13px 2px $box-shadow-secondary;
+  transform: translateY(-1.5px);
+  opacity: 88%;
+  box-shadow: 2px 3px 1px $box-shadow-secondary;
+}
+.secondary-cta:active {
+  transform: translateY(1.5px);
+  box-shadow: 2px 3px 0px $box-shadow-secondary;
+}
+
+.round-cta {
+  font-size: 1rem;
+  color: $white-secondary;
+  text-shadow: 0 0px 1px $light-shadow-secondary;
+  padding: 0.25rem;
+  // background-color: $gray-secondary;
+  text-shadow: -1px 2px 4px $light-shadow-secondary;
+  transition: 0.2s ease;
+  // text-align: center;
+  vertical-align: bottom;
+  margin-inline: 5px;
+  border: none;
+  scale: 1.5;
+}
+
+.round-cta:hover {
+  transform: translateY(-1.5px);
+  opacity: 88%;
+  box-shadow: 2px 3px 1px $box-shadow-secondary;
+}
+
+.round-cta:active {
+  transform: translateY(1.5px);
+  text-shadow: 2px 3px 0px $box-shadow-secondary;
 }

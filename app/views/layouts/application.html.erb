@@ -16,10 +16,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body data-current-user-id="<%= current_user ? current_user.id : "" %>">
+  <body class="background-color-body" data-current-user-id="<%= current_user ? current_user.id : "" %>">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-
-    <%= yield %>
+    <div>
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+      <%= yield %>
+      </div>
   </body>
 </html>

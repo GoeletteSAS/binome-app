@@ -32,7 +32,7 @@
                       <%= image_tag "", class: "img-thumbnail" %>
                     </div>
                     <div class="chatroom-info">
-                      <h5><%= chatroom.other_user(current_user).last_name %></h5>
+                      <h5><%= chatroom.other_user(current_user).first_name %> <%= chatroom.other_user(current_user).last_name %></h5>
                       <% if chatroom.messages.any? %>
                         <p class="last-message">
                           <%= chatroom.messages.last.content.truncate(50) %>

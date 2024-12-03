@@ -6,6 +6,10 @@
   background: linear-gradient($background-white, $background-light-gray);
 }
 
+  .background-color-body {
+  background: linear-gradient(135deg, $background-light-gray 20%, $background-white 94%);
+}
+
 .home-container {
   padding: 9vh 5vw 0vh 5vw;
   max-height: 91vh;

@@ -2,8 +2,9 @@ class ExperiencesController < ApplicationController
 
   def create
     @experience = Experience.new(experience_params)
-    @experience.save
-    redirect_to # à définir
+    @experience.user = current_user
+    @experience.save!
+    redirect_to dashboard_profile_path
   end
   
   def update

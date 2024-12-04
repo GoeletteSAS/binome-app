@@ -1,31 +1,33 @@
-<div><%= render "tabs" %></div>
+<div class="dashboard-container">
+  <div><%= render "tabs" %></div>
 
-<main class="profile-container">
+  <main class="profile-container">
 
-<%if current_user.experiences.any?%>
+  <%if current_user.experiences.any?%>
 
-  <div class="">
-    <% current_user.experiences.each do |experience| %>
-      <h3>Expérience</h3>
-      <p>Métier : <%= experience.line_of_work %></p>
-      <p>Secteur : <%= experience.field %></p>
-      <p>De <%= experience.start_date %> à <%= experience.end_date %></p>
-    <% end %>
-  </div>
+    <div class="">
+      <% current_user.experiences.each do |experience| %>
+        <h3>Expérience</h3>
+        <p>Métier : <%= experience.line_of_work %></p>
+        <p>Secteur : <%= experience.field %></p>
+        <p>De <%= experience.start_date %> à <%= experience.end_date %></p>
+      <% end %>
+    </div>
 
-  <div>
+    <div>
+      <section class="profile-content">
+        <%= render "experiences/form", experience: @experience %>
+      </section>
+    </div>
+
+  <% else %>
     <section class="profile-content">
       <%= render "experiences/form", experience: @experience %>
     </section>
-  </div>
-
-<% else %>
-  <section class="profile-content">
-    <%= render "experiences/form", experience: @experience %>
-  </section>
-<% end %>
+  <% end %>
 
 
 
 
-</main>
+  </main>
+</div>

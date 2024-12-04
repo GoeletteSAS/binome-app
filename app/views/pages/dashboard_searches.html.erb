@@ -1,41 +1,48 @@
-<div><%= render "tabs" %></div>
+<div class="dashboard-container">
+  <div><%= render "tabs" %></div>
 
-<div class="row">
-  <div class="col-5">
-    <% @searches.each do |search| %>
-      <%= link_to search_path(search), data: { turbo_frame: "preview" } do %>
-        <% if search.is_offering? %>
-          <div class="d-flex border profile-card">
-            <div class="col-10">
-              <div><h3>Partager mon poste</h3></div>
-              <div class="line-of-work col-6"><%= search.line_of_work.capitalize %></div>
-              <div class="adress col-6"><%= search.address %></div>
+  <div class="row">
+    <div class="col-5 searches-container">
+      <% @searches.each do |search| %>
+        <%= link_to search_path(search), data: { turbo_frame: "preview" } do %>
+          <% if search.is_offering? %>
+            <div class="search-card">
+              <div class="col-10">
+                <div class="header-searches"><h3>Partager mon poste</h3></div>
+                <div class="search-card-content">
+                  <div class="content-item">
+                  <div class="line-of-work col-6"><%= search.line_of_work.capitalize %></div>
+                  <div class="adress col-6"><%= search.address %></div>
+                  </div>
+                  <div class="div-time-share">40%</div>
+                </div>
+                </div>
             </div>
-          </div>
-        <% else %>
-          <div class="d-flex border profile-card">
-            <div class="col-10">
-              <div><h3>Rejoindre un poste</h3></div>
-              <div class="line-of-work col-6"><%= search.line_of_work.capitalize %></div>
-              <div class="address col-6"><%= search.address %></div>
+          <% else %>
+            <div class="">
+              <div class="col-10">
+                <div class="header-searches"><h3>Rejoindre un poste</h3></div>
+                <div class="line-of-work col-6"><%= search.line_of_work.capitalize %></div>
+                <div class="address col-6"><%= search.address %></div>
+              </div>
+              <div class="div-time-share">
+                <p class="d-flex justify-content-center align-items-center col-2">40%</p>
+              </div>
             </div>
-            <p style="margin: 0; background-color: gray; font: bold 34px 'Futura'; color: transparent; text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.8); background-clip: text;" class="d-flex justify-content-center align-items-center col-2">
-              40%
-            </p>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
+    <div class="col-7">
+      <%= turbo_frame_tag "preview" %>
+    </div>
   </div>
-  <div class="col-7">
-    <%= turbo_frame_tag "preview" %>
-  </div>
-</div>
 
-<% if current_user.searches.nil?%>
-  <div class="cards">
-    <h1>Aucun recherche ici</h1>
-  </div>
-<%else%>
-  <%#= render "cards_jobsearch" %>
-<% end %>
+  <% if current_user.searches.nil?%>
+    <div class="cards">
+      <h1>Aucun recherche ici</h1>
+    </div>
+  <%else%>
+    <%#= render "cards_jobsearch" %>
+  <% end %>
+</div>

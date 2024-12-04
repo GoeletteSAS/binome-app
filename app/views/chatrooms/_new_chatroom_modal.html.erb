@@ -11,7 +11,7 @@
 </div>
 
 <%= form_with(
-      model: @chatroom,
+      model: Chatroom.find_or_create_by(user_1: current_user, user_2: @user),
       url: chatrooms_path,
       local: true,
       data: { controller: "chatroom", turbo: false },
@@ -26,6 +26,7 @@
       %>
     </div>
     <%= f.hidden_field :recipient_id, value: @user.id if @user %>
+    <%= f.hidden_field :user_2_id, value: @user.id%>
   </div>
 
   <div class="modal-footer">

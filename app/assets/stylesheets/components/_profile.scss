@@ -9,17 +9,28 @@
 
 .profile-card {
   background-color: white;
-  max-width: 400px;
-  border-radius: 2px;
-  padding-inline: 1.5rem;
-  padding-block: 1.2rem;
+  max-width: 25rem;
+  border-radius: 10px 10px 2px 2px;
   // box-shadow: 0 4px 6px $box-shadow-primary;
-  box-shadow: 6px 6px 0px 0px $gray-primary;
+  box-shadow: 4px 4px 0px 0px $gray-primary;
   transition: transform 0.2s ease;
 }
 
 .profile-card:hover {
   transform: translateY(-5px);
+}
+
+.header-profile-card {
+  height: 1.5rem;
+  background-color: $gray-secondary;
+  border-radius: 10px 10px 2px 2px;
+  max-width: 25rem;
+}
+
+.content-profile {
+  padding-inline: 1.5rem;
+  padding-block: 1.2rem;
+  width: 100%;
 }
 
 .profile-subcard {
@@ -118,4 +129,8 @@
   color: $title-blue;
   font-size: 1.2rem;
   padding: 2rem;
+}
+.modal-dialog {
+  max-width: 600px;
+  width: 90%;
 }

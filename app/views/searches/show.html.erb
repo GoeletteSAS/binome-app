@@ -1,9 +1,12 @@
 <%= turbo_frame_tag "preview" do %>
+  <%= render "chatrooms/new_chatroom_modal" %>
   <% if @matching_users.any? %>
     <div class="matching-profiles">
       <% @matching_users.each do |matching_user| %>
         <% @user = User.find(matching_user.id) %>
         <div class="profile-card">
+          <div class="header-profile-card"></div>
+          <div class="content-profile">
           <div class="profile-subcard">
             <div class="profile-info">
               <% if @user.photo.attached? %>
@@ -36,9 +39,9 @@
               </div>
             </div>
             <div class="profile-icons-box">
-              <%= button_to dashboard_chatrooms_path, method: :get, data: {turbo: false} do %>
-                <i class="fa-regular fa-message"></i>
-              <% end %>
+             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newChatroomModal">
+  Launch demo modal
+</button>
               <% if current_user.favorites.exists?(user_2_id: @user.id) %>
                 <!-- Si l'utilisateur a déjà favorisé ce profil, on affiche l'étoile pleine -->
                 <%= button_to favorites_path(user_2_id: @user.id), method: :post, data: {turbo: false} do %>
@@ -51,6 +54,7 @@
                 <i class="fa-regular fa-star"></i>
                 <!-- L'étoile vide si non favori -->
                 <% end %>
+
               <% end %>
             </div>
           </div>
@@ -78,6 +82,7 @@
             <% end %>
           </div>
 
+          </div>
         </div>
       <% end %>
     </div>

@@ -1,5 +1,5 @@
-<div><%= render "tabs" %></div>
-
+<div class="dashboard-container">
+  <div><%= render "tabs" %></div>
 <div class="container-fluid">
   <div class="card">
     <div class="card-header">
@@ -12,9 +12,6 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Unread</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-file-alt"></i> Drafts</a>
         </li>
       </ul>
     </div>
@@ -40,18 +37,18 @@
                         <small><%= time_ago_in_words(chatroom.messages.last.created_at) %> ago</small>
                       <% end %>
                     </div>
-                  </div>
+                  <% end %>
                 <% end %>
+              <% else %>
+                <li class="list-group-item">No chatrooms available</li>
               <% end %>
-            <% else %>
-              <li class="list-group-item">No chatrooms available</li>
-            <% end %>
-          </ul>
-        </div>
+            </ul>
+          </div>
 
-        <!-- Message Exchanges Column -->
-        <div class="col-md-9">
-          <%= turbo_frame_tag "chatroom_content" %>
+          <!-- Message Exchanges Column -->
+          <div class="col-md-9">
+            <%= turbo_frame_tag "chatroom_content" %>
+          </div>
         </div>
       </div>
     </div>

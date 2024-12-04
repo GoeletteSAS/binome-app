@@ -13,5 +13,9 @@ class Chatroom < ApplicationRecord
     current_user == user_1 ? user_2 : user_1
   end
 
-  
+  # def self.ordered_by_last_message
+  #   left_joins(:messages)
+  #     .group(:id)
+  #     .order('MAX(messages.created_at) DESC NULLS LAST')
+  # end
 end

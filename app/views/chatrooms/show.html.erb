@@ -1,6 +1,5 @@
 <%= turbo_frame_tag "chatroom_content" do %>
   <div class="chat">
-    <h3>Chat avec <%= @chatroom.other_user(current_user).first_name %></h3>
     <%= turbo_stream_from [@chatroom, current_user, "messages"] %>
     <div id="messages" class="messages">
       <% @chatroom.messages.each do |message| %>
@@ -17,7 +16,8 @@
         <%= f.input :content,
           label: false,
           placeholder: "Écrivez un message...",
-          wrapper_html: {class: "flex-grow-1"}
+          wrapper_html: {class: "flex-grow-1"},
+          input_html: {class: "bg-transparent"}
         %>
         <%= f.button :submit, "Envoyer", class: "btn btn-primary" %>
       <% end %>

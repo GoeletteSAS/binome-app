@@ -23,9 +23,9 @@ class ChatroomsController < ApplicationController
     @chatroom.user_1 = current_user
 
     if @chatroom.save
-      redirect_to redirect_to chatroom_path(@chatroom), notice: 'Chatroom was successfully created.'
+      redirect_to chatroom_path(@chatroom), notice: 'Chatroom was successfully created.'
     else
-      redirect_to root_path, alert: "Impossible de créer la conversation"
+      redirect_to dashboard_searches_path, alert: "Impossible de créer la conversation"
     end
   end
 

@@ -10,9 +10,9 @@
 .profile-card {
   background-color: white;
   max-width: 25rem;
-  border-radius: 10px 10px 2px 2px;
+  border-radius: 4px;
   // box-shadow: 0 4px 6px $box-shadow-primary;
-  box-shadow: 4px 4px 0px 0px $gray-primary;
+  box-shadow: 4px 4px 0px 0px $mid-shadow-primary;
   transition: transform 0.2s ease;
 }
 

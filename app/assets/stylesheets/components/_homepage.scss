@@ -21,7 +21,8 @@
 .home-header-and-CTA {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content:flex-start;
+  gap: 3rem;
   align-items: flex-start;
 }
 

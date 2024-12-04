@@ -34,24 +34,25 @@
                     <div class="chatroom-info">
                       <h5><%= chatroom.other_user(current_user).first_name %> <%= chatroom.other_user(current_user).last_name %></h5>
                       <% if chatroom.messages.any? %>
+                        <div class="badge rounded-pill text-bg-info">Unread : <%= chatroom.messages.where(sender: current_user, reading: false).count %></div>
                         <p class="last-message">
                           <%= chatroom.messages.last.content.truncate(50) %>
                         </p>
                         <small><%= time_ago_in_words(chatroom.messages.last.created_at) %> ago</small>
                       <% end %>
                     </div>
-                  <% end %>
+                  </div>
                 <% end %>
-              <% else %>
-                <li class="list-group-item">No chatrooms available</li>
               <% end %>
-            </ul>
-          </div>
+            <% else %>
+              <li class="list-group-item">No chatrooms available</li>
+            <% end %>
+          </ul>
+        </div>
 
-          <!-- Message Exchanges Column -->
-          <div class="col-md-9">
-            <%= turbo_frame_tag "chatroom_content" %>
-          </div>
+        <!-- Message Exchanges Column -->
+        <div class="col-md-9">
+          <%= turbo_frame_tag "chatroom_content" %>
         </div>
       </div>
     </div>

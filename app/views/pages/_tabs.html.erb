@@ -8,7 +8,6 @@
 
     <%#= action_name %>
     <%#= controller_name %>
-
     <ul class="nav nav-tabs flex-item">
       <li class="nav-item">
         <%= link_to "Mes recherches", dashboard_searches_path, class: "nav-link #{'active' if action_name == 'dashboard_searches'}" %>
@@ -16,7 +15,7 @@
       <li class="nav-item">
         <%= link_to "Carnet d'adresses", dashboard_favorites_path, class: "nav-link #{'active' if action_name == 'dashboard_favorites'}" %>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" data-notifications-sms={}>
         <%= link_to "Messages", dashboard_chatrooms_path, class: "nav-link #{'active' if action_name == 'dashboard_chatrooms'}" %>
       </li>
       <li class="nav-item">

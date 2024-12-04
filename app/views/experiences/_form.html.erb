@@ -2,19 +2,16 @@
   <h2 class="text-center">Vos expériences</h1>
 
   <%= simple_form_for @experience do |f| %>
+
     <%= f.input :start_date,
-                label: 'Date de début',
-                input_html: {
-                  class: 'form-control datepicker',
-                  data: { controller: "flatpickr" }
-                } %>
+                as: :string,
+                label: "Date de début",
+                input_html: { data: { controller: "datepicker" } } %>
 
     <%= f.input :end_date,
-                label: 'Date de fin',
-                input_html: {
-                  class: 'form-control datepicker',
-                  data: { controller: "flatpickr" }
-                } %>
+                as: :string,
+                label: "Date de fin",
+                input_html: { data: { controller: "datepicker" } } %>
 
     <%= f.input :is_current, label: 'Est-ce votre poste actuel ?', input_html: { class: 'form-check-input' } %>
 

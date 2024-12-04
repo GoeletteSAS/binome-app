@@ -1,15 +1,22 @@
 .tabs-background {
-  padding-left: 24px;
-  padding-top: 24px;
-  padding-bottom: 32px;
+  margin-bottom: 2rem;
 }
 
 .tabs-titles {
   color: $dark-gray-primary;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 }
 
 .tabs-sub-titles {
   margin-bottom: 24px;
 }
 
+.tabs-with-pics {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tabs-buttons {
+  display: flex;
+  gap: 10px;
+}

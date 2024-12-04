@@ -11,18 +11,17 @@
 </div>
 
 <%= form_with(
-      model: Chatroom.new,
+      model: @chatroom,
       url: chatrooms_path,
-      local: false,
-      data: { controller: "chatroom" }, data: { turbo: false },
-      method: :post,
+      local: true,
+      data: { controller: "chatroom", turbo: false },
+      method: :post
     ) do |f| %>
   <div class="modal-body">
     <div class="mb-3">
-      <%= f.text_area :message,
+      <%= f.text_field :first_name,
           class: "form-control",
-          placeholder: "écrivez votre message ici...",
-          rows: 3,
+          placeholder: "Nom du chatroom",
           required: true
       %>
     </div>

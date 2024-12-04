@@ -14,6 +14,8 @@ class ChatroomsController < ApplicationController
 
   def new
     @chatroom = Chatroom.new
+    @chatroom.find_by(user_1: current_user, user_2: @user)
+
   end
 
   def create

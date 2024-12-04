@@ -1,13 +1,12 @@
 <%= turbo_frame_tag "preview" do %>
-  <%= render "chatrooms/new_chatroom_modal" %>
   <% if @matching_users.any? %>
     <div class="matching-profiles-with-title">
       <div><h2>Ces profils peuvent vous intéresser</h2></div>
       <div class="matching-profiles">
         <% @matching_users.each do |matching_user| %>
           <% @user = User.find(matching_user.id) %>
+          <%= render "chatrooms/new_chatroom_modal", user: @user %>
           <div class="profile-card">
-            <%# <div class="header-profile-card"></div> %>
             <div class="content-profile">
             <div class="profile-subcard">
               <div class="profile-info">
@@ -42,23 +41,23 @@
               </div>
             </div>
             <div class="profile-icons-box">
-             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newChatroomModal">
-                <i class="fa-regular fa-message"></i>
-              </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newChatroomModal">
+                  <i class="fa-regular fa-message"></i>
+                </button>
                 <% if current_user.favorites.exists?(user_2_id: @user.id) %>
                   <!-- Si l'utilisateur a déjà favorisé ce profil, on affiche l'étoile pleine -->
                   <%= button_to favorites_path(user_2_id: @user.id), method: :post, data: {turbo: false} do %>
-                  <i class="fa-solid fa-star text-warning"></i>
-                  <!-- L'étoile pleine si déjà favori -->
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <!-- L'étoile pleine si déjà favori -->
                   <% end %>
                 <% else %>
                   <!-- Si l'utilisateur n'a pas encore favorisé ce profil, on affiche l'étoile vide -->
                   <%= button_to favorites_path(user_2_id: @user.id), method: :post, data: {turbo: false} do%>
-                  <i class="fa-regular fa-star"></i>
-                  <!-- L'étoile vide si non favori -->
+                    <i class="fa-regular fa-star"></i>
+                    <!-- L'étoile vide si non favori -->
                   <% end %>
                 <% end %>
-              </div>
+              <% end %>
             </div>
 
             <div class="separator"></div>
@@ -86,10 +85,9 @@
 
             </div>
           </div>
-
-      <% end %>
     </div>
   <% else %>
     <p class="no-results">Aucun profil correspondant trouvé</p>
   <% end %>
+
 <% end %>

@@ -338,24 +338,24 @@ Experience.create!(
     user: User.last,
     start_date: "2020-02-02",
     is_current: true,
-    line_of_work: "Marketing",
+    line_of_work: "Ventes",
     field: "Textile, Habillement & Chaussure",
     address: "Paris, France"
   )
 
-Search.create!(
-  user: User.last,
-  address: "Lyon, France",
-  field: "Textile, Habillement & Chaussure",
-  line_of_work: "Marketing",
-  is_offering: false,
-)
+# Search.create!(
+#   user: User.last,
+#   address: "Lyon, France",
+#   field: "Textile, Habillement & Chaussure",
+#   line_of_work: "Marketing",
+#   is_offering: false,
+# )
 
 Search.create!(
   user: User.last,
   address: "Paris, France",
   field: "Textile, Habillement & Chaussure",
-  line_of_work: "Ventes",
+  line_of_work: "Marketing",
   is_offering: false,
 )
 
@@ -363,11 +363,12 @@ Search.create!(
 juliette = User.find_by(username: "juju")
 pascal = User.find_by(username: "Pascal92")
 virginie = User.find_by(username: "Virginie73")
+sophie = User.find_by(username: "Sophie98")
 
 # Chatroom 1: Juliette and Pascal
 chatroom1 = Chatroom.create!(user_1: juliette, user_2: pascal)
 Message.create!([
-  { chatroom: chatroom1, sender: juliette, content: "Bonjour Pascal! J'ai vu que tu travailles dans la vente textile. Je cherche justement à me réorienter dans ce domaine.", created_at: 2.days.ago },
+  { chatroom: chatroom1, sender: juliette, content: "Bonjour Pascal! J'ai vu que tu travailles dans le Marketing textile. Je cherche justement à me réorienter dans ce domaine.", created_at: 2.days.ago },
   { chatroom: chatroom1, sender: pascal, content: "Bonjour Juliette! Effectivement, je travaille dans ce secteur depuis 3 ans. Je serai ravi d'échanger avec toi sur mon expérience.", created_at: 2.days.ago + 1.hour },
   { chatroom: chatroom1, sender: juliette, content: "Super! J'aimerais beaucoup avoir ton retour sur la transition du marketing vers la vente.", created_at: 2.days.ago + 2.hours }
 ])
@@ -375,9 +376,16 @@ Message.create!([
 # Chatroom 2: Juliette and Virginie
 chatroom2 = Chatroom.create!(user_1: juliette, user_2: virginie)
 Message.create!([
-  { chatroom: chatroom2, sender: virginie, content: "Salut Juliette! J'ai vu que tu cherches des contacts dans le marketing textile à Lyon?", created_at: 1.day.ago },
+  { chatroom: chatroom2, sender: virginie, content: "Salut Juliette! J'ai vu que tu cherches des contacts dans le Marketing textile à Paris?", created_at: 1.day.ago },
   { chatroom: chatroom2, sender: juliette, content: "Oui tout à fait! Je cherche à rencontrer des professionnels du secteur.", created_at: 1.day.ago + 30.minutes },
   { chatroom: chatroom2, sender: virginie, content: "Je peux te présenter quelques personnes de mon réseau si tu veux!", created_at: 1.day.ago + 1.hour }
+])
+
+# Chatroom 3: Juliette and Sophie
+chatroom3 = Chatroom.create!(user_1: juliette, user_2: sophie)
+Message.create!([
+  { chatroom: chatroom3, sender: juliette, content: "Salut Juliette! Je vois que tu es en poste dans le textile à Paris?", created_at: 2.minutes.ago },
+  # C'est super, je suis intéressée par ton poste et ton secteur. Je serais ravie d'échanger davantage avec toi.
 ])
 
 

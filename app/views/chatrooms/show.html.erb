@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "chatroom_content" do %>
-  <div class="container chat">
+  <div class="chat">
     <h3>Chat avec <%= @chatroom.other_user(current_user).first_name %></h3>
     <%= turbo_stream_from [@chatroom, current_user, "messages"] %>
     <div id="messages" class="messages">

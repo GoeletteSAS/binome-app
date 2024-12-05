@@ -4,7 +4,7 @@
       <div><h2>Ces profils peuvent vous intéresser</h2></div>
       <div class="matching-profiles">
         <% @matching_users.each do |matching_user| %>
-          <% @user = User.find(matching_user.id) %>
+          <% @user = matching_user %>
           <%= render "chatrooms/new_chatroom_modal", user: @user %>
           <div class="profile-card">
             <div class="content-profile">
@@ -67,24 +67,14 @@
               </div>
               <div class="separator"></div>
               <div class="profile-experiences">
-                <% @user.experiences.where(line_of_work: @search.line_of_work, field: @search.field).each do |experience| %>
+
+
                   <div class="experience-section">
                     <div class="experience-item">
-                      <i class="fas fa-briefcase"></i>
-                      <p><strong>Fonction:</strong> <%= experience.line_of_work %></p>
+                      <p><%= @user.description %></p>
                     </div>
-                    <div class="experience-item">
-                      <i class="fas fa-industry"></i>
-                      <p><strong>Secteur:</strong> <%= experience.field %></p>
-                    </div>
-                    <div class="experience-item">
-                      <i class="fas fa-map-marker-alt"></i>
-                      <p><strong>Lieu:</strong> <%= experience.address %></p>
-                    </div>
-
-
                   </div>
-                <% end %>
+
               </div>
             </div>
           </div>

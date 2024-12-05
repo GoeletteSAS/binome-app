@@ -9,7 +9,13 @@
   <h5 class="modal-title" id="newChatroomModalLabel">Message</h5>
   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
-<%= form_with(model: Chatroom.new, local: true) do |f| %>
+<%= form_with(
+      model: @chatroom,
+      url: chatrooms_path,
+      local: true,
+      data: { controller: "chatroom", turbo: false },
+      method: :post
+    ) do |f| %>
   <div class="modal-body">
     <div class="mb-3">
       <%= f.text_area :message,

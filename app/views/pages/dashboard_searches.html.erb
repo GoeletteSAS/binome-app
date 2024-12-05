@@ -1,39 +1,43 @@
 <div class="dashboard-container">
   <div><%= render "tabs" %></div>
 
-  <div class="row">
-    <div class="col-5 searches-container">
+  <div class="searches-results">
+    <div class="searches-container">
       <% @searches.each do |search| %>
         <%= link_to search_path(search), data: { turbo_frame: "preview" } do %>
           <% if search.is_offering? %>
             <div class="search-card">
-              <div class="col-10">
-                <div class="header-searches"><h3>Partager mon poste</h3></div>
-                <div class="search-card-content">
-                  <div class="content-item">
-                  <div class="line-of-work col-6"><%= search.line_of_work.capitalize %></div>
-                  <div class="adress col-6"><%= search.address %></div>
+              <div class="header-searches-invite">
+                <h3>Partager mon poste</h3>
+                <h3><i class="fa-solid fa-chevron-right"></i></h3>
+              </div>
+              <div class="search-card-content">
+                <div class="content-item">
+                  <div class="line-of-work"><%= search.line_of_work.capitalize %></div>
+                  <div class="adress"><%= search.address %></div>
                   </div>
-                  <div class="div-time-share">40%</div>
-                </div>
-                </div>
+                <div class="div-time-share-invite">40%</div>
+              </div>
             </div>
           <% else %>
-            <div class="">
-              <div class="col-10">
-                <div class="header-searches"><h3>Rejoindre un poste</h3></div>
-                <div class="line-of-work col-6"><%= search.line_of_work.capitalize %></div>
-                <div class="address col-6"><%= search.address %></div>
+            <div class="search-card">
+              <div class="header-searches-join">
+                <h3>Rejoindre un poste</h3>
+                <h3><i class="fa-solid fa-chevron-right"></i></h3>
               </div>
-              <div class="div-time-share">
-                <p class="d-flex justify-content-center align-items-center col-2">40%</p>
+              <div class="search-card-content">
+                <div class="content-item">
+                  <div class="line-of-work"><%= search.line_of_work.capitalize %></div>
+                  <div class="adress"><%= search.address %></div>
+                </div>
+                <div class="div-time-share-join">40%</div>
               </div>
             </div>
           <% end %>
         <% end %>
       <% end %>
     </div>
-    <div class="col-7">
+    <div class="results">
       <%= turbo_frame_tag "preview" %>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<div class="dashboard-container">
+<div class="dashboard-container" data-controller="active-chat" >
   <div><%= render "tabs" %></div>
   <div class="container-fluid">
     <div class="card">
@@ -25,7 +25,7 @@
                 <div class="chatroom-preview">
                   <% @chatrooms.each do |chatroom| %>
                     <%= link_to chatroom_path(chatroom), data: { turbo_frame: "chatroom_content" } do %>
-                      <div class="chatroom-info">
+                      <div class="chatroom-info" data-action="click->active-chat#highlight" data-active-chat-target="info">
                         <div class="chatroom-info-without-chevron">
                           <div class="avatar">
                             <% if chatroom.other_user(current_user).photo.attached? %>

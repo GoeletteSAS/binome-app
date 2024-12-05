@@ -21,7 +21,7 @@
   color: white;
 }
 
-.chatroom-info:active {
+.chatroom-info.active {
   background-color: $gray-secondary;
   box-shadow: inset 2px 2px 0px $light-shadow-secondary;
   color: white;

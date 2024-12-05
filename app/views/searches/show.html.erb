@@ -16,6 +16,9 @@
                     <%= image_tag "default-user.svg", crop: :fill, alt: "default-profile-photo"%>
                   <% end %>
                   <div class="profile-icons-box">
+                    <%= link_to search_details_path(@search, @user), data: { turbo_method: :post } do %>
+                      <i class="fa-solid fa-ellipsis"></i>
+                    <% end %>
                     <button type="button"
                     data-bs-toggle="modal"
                     data-bs-target="#newChatroomModal-<%= @user.id %>">

@@ -23,8 +23,14 @@ class SearchesController < ApplicationController
 
   end
 
-  def new
+  def details
+    @search = Search.find(params[:search_id])
+    @user = User.find(params[:user_id])
 
+    respond_to &:turbo_stream
+  end
+
+  def new
     # @experience = current_user.experiences.where(is_current: true)
     # if @experience
     #   return

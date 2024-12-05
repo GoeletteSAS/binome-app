@@ -37,9 +37,12 @@
         <% end %>
       <% end %>
     </div>
-    <div class="results">
+    <div class="results" id="results">
       <%= turbo_frame_tag "preview" %>
     </div>
+  </div>
+  <div class="details">
+    <%= turbo_frame_tag "details" %>
   </div>
 
   <% if current_user.searches.nil?%>

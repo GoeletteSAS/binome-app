@@ -10,7 +10,7 @@
               <div class="profile-subcard">
                 <div class="profile-info">
                   <% if @favorite_user.photo.attached? %>
-                    <%= cl_image_tag @favorite_user.photo.key, crop: :fill, class: "img-fluid" %>
+                    <%= cl_image_tag @favorite_user.photo.key, crop: :fill, class: "avatar" %>
                   <% else %>
                     <%= image_tag "default-user.svg", crop: :fill, alt: "default-profile-photo"%>
                   <% end %>

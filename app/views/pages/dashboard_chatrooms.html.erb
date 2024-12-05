@@ -19,7 +19,7 @@
         <div class="row">
           <!-- Chatrooms List Column -->
           <div class="col-md-3 chatrooms-list">
-            <h4>Your Chatrooms</h4>
+            <h4>Les nouveaux messages</h4>
             <ul class="list-group">
               <% if @chatrooms.present? %>
                 <% @chatrooms.each do |chatroom| %>
@@ -47,7 +47,7 @@
               <% end %>
             </ul>
           </div>
-  
+
           <!-- Message Exchanges Column -->
           <div class="col-md-9">
             <%= turbo_frame_tag "chatroom_content" %>

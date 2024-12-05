@@ -14,11 +14,13 @@ class SearchesController < ApplicationController
                          field: @search.field,
                          is_current: true
                        })
+                       .where.not(id: current_user.id)
+                       .distinct
 
     # Essayer de faire un .where sur les experiences qui ont la même adresse que la search (utiliser .near)
     # et .where sur les experiences qui ont le même line_of_work que la search
     # et .where sur les experiences qui ont le même field que la search
-    
+
   end
 
   def new

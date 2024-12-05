@@ -14,16 +14,21 @@ class ChatroomsController < ApplicationController
 
   def new
     @chatroom = Chatroom.new
+    @chatroom.find_by(user_1: current_user, user_2: @user)
+
   end
 
   def create
-    @chatroom = Chatroom.new(chatroom_params)
-    @chatroom.user_1 = current_user
-
-    if @chatroom.save
-      redirect_to chatroom_path(@chatroom), notice: 'Chatroom was successfully created.'
+    if Chatroom.find_by(user_1: current_user, user_2_id: params[:chatroom][:user_2_id])
+      redirect_to dashboard_searches_path, notice: 'Chatroom was successfully found.'
     else
-      redirect_to dashboard_searches_path, alert: "Impossible de créer la conversation"
+      @chatroom = Chatroom.new(chatroom_params)
+      @chatroom.user_1 = current_user
+      if @chatroom.save
+        redirect_to chatroom_path(@chatroom), notice: 'Chatroom was successfully created.'
+      else
+        redirect_to dashboard_searches_path, alert: "Impossible de créer la conversation"
+      end
     end
   end
 

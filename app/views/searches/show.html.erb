@@ -1,11 +1,11 @@
 <%= turbo_frame_tag "preview" do %>
-  <%= render "chatrooms/new_chatroom_modal" %>
   <% if @matching_users.any? %>
     <div class="matching-profiles-with-title">
       <div><h2>Ces profils peuvent vous intéresser</h2></div>
       <div class="matching-profiles">
         <% @matching_users.each do |matching_user| %>
           <% @user = User.find(matching_user.id) %>
+          <%= render "chatrooms/new_chatroom_modal", user: @user %>
           <div class="profile-card">
             <div class="content-profile">
               <div class="profile-subcard">
@@ -89,4 +89,5 @@
   <% else %>
     <p class="no-results">Aucun profil correspondant trouvé</p>
   <% end %>
+
 <% end %>

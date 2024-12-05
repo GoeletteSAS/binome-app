@@ -11,22 +11,22 @@
 </div>
 
 <%= form_with(
-      model: Chatroom.new,
+      model: Chatroom.find_or_create_by(user_1: current_user, user_2: @user),
       url: chatrooms_path,
-      local: false,
-      data: { controller: "chatroom" }, data: { turbo: false },
-      method: :post,
+      local: true,
+      data: { controller: "chatroom", turbo: false },
+      method: :post
     ) do |f| %>
   <div class="modal-body">
     <div class="mb-3">
-      <%= f.text_area :message,
+      <%= f.text_field :first_name,
           class: "form-control",
-          placeholder: "écrivez votre message ici...",
-          rows: 3,
+          placeholder: "Nom du chatroom",
           required: true
       %>
     </div>
     <%= f.hidden_field :recipient_id, value: @user.id if @user %>
+    <%= f.hidden_field :user_2_id, value: @user.id%>
   </div>
 
   <div class="modal-footer">

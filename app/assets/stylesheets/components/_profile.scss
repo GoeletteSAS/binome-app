@@ -80,6 +80,7 @@
   font-size: 14px;
 }
 
+
 .mail-and-pic {
   display: flex;
   gap: 8px;
@@ -88,7 +89,7 @@
 .profile-icons-box {
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  gap: 1rem;
 }
 
 .profile-icons-box button {
@@ -146,15 +147,81 @@
 
 // .experience-item p {
   // text-overflow: ellipsis;
-// }
+  // }
 
-.no-results {
-  text-align: center;
-  color: $title-blue;
-  font-size: 1.2rem;
-  padding: 2rem;
+  .no-results {
+    text-align: center;
+    color: $title-blue;
+    font-size: 1.2rem;
+    padding: 2rem;
+  }
+  .modal-dialog {
+    max-width: 600px;
+    width: 90%;
+  }
+
+
+  .profile-details-card {
+    display: flex;
+    flex-direction: column;
+    width: 60rem;
+    margin-right: 4rem;
+    border-radius: 4px;
+    height: 100%;
+    box-shadow: 0px 4px 10px $light-shadow-secondary;
+    padding: 2rem;
+    background-color: white;
+  }
+
+
+  .profile-details-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .big-photo-and-name {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+.profile-detail-email {
+    display: flex;
+    align-items: center;
+    color: silver;
+    font-size: 1rem;
+  }
+
+.boutons-icons {
+  justify-content: baseline;
 }
-.modal-dialog {
-  max-width: 600px;
-  width: 90%;
+
+.profile-details-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.profile-details-experiences {
+  max-height: 100%;
+  flex-grow: 1;
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.profile-details-experiences-cards {
+  height: fit-content;
+  background-color: $background-white;
+  color: $black-secondary;
+  border-radius: 8px;
+  padding: 0.8rem;
+  box-shadow: 0px 4px 10px $light-shadow-primary;
+  // max-height: 100%;
+  background-color: $background-gray;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-details-experience-item {
+  display: flex;
+  gap: 0.2rem;
 }

@@ -26,7 +26,7 @@ class PagesController < ApplicationController
     @experience = Experience.new(user: current_user)
     @lines_of_work = Search::LINES_OF_WORK
     @fields = Search::FIELDS
-    # notifications_messages()
+    notifications_messages()
   end
 
   def dashboard_favorites

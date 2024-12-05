@@ -1,17 +1,19 @@
 <div class="modal fade"
-     id="newChatroomModal"
+     id="newChatroomModal-<%= @user.id %>"
      tabindex="-1"
-     aria-labelledby="newChatroomModalLabel"
+     aria-labelledby="newChatroomModal-<%= @user.id %>Label"
      aria-hidden="true">
      <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
-  <h5 class="modal-title" id="newChatroomModalLabel">Message</h5>
+  <h5 class="modal-title" id="newChatroomModal-<%= @user.id %>Label">Message</h5>
   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 
+<% @chatroom = Chatroom.find_by(user_1: current_user, user_2: @user) || Chatroom.new %>
+
 <%= form_with(
-      model: Chatroom.find_or_create_by(user_1: current_user, user_2: @user),
+      model: @chatroom,
       url: chatrooms_path,
       local: true,
       data: { controller: "chatroom", turbo: false },
@@ -19,14 +21,14 @@
     ) do |f| %>
   <div class="modal-body">
     <div class="mb-3">
-      <%= f.text_field :first_name,
+      <%= f.text_field :message,
           class: "form-control",
-          placeholder: "Nom du chatroom",
+          placeholder: "votre message",
           required: true
       %>
     </div>
     <%= f.hidden_field :recipient_id, value: @user.id if @user %>
-    <%= f.hidden_field :user_2_id, value: @user.id%>
+    <%#= f.hidden_field :user_2_id, value: @user.id %>
   </div>
 
   <div class="modal-footer">

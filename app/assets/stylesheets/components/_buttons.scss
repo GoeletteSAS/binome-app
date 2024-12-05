@@ -25,13 +25,20 @@
   border-style: 1px solid;
   border-radius: 8px;
   background-color: $gray-secondary;
+  color: $white-secondary;
 
   &:hover {
-    // transform: scale(1.005);
-    opacity: 92%;
-    box-shadow: 6px 6px 2px $light-shadow-secondary;
+    margin-top : 8px;
+    margin-bottom: 16px;
+    border-style: 1px solid;
+    border-radius: 8px;
+    background-color: $gray-secondary;
+    color: $white-secondary;
+    opacity: 88%;
+    transform: translateY(-1.5px);
   }
 }
+
 
 .main-cta-home {
   font-size: 24px;

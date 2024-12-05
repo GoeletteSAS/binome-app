@@ -15,6 +15,26 @@
                   <% else %>
                     <%= image_tag "default-user.svg", crop: :fill, alt: "default-profile-photo"%>
                   <% end %>
+                  <div class="profile-icons-box">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newChatroomModal">
+                      <i class="fa-regular fa-message"></i>
+                    </button>
+                    <% if current_user.favorites.exists?(user_2_id: @user.id) %>
+                      <!-- Si l'utilisateur a déjà favorisé ce profil, on affiche l'étoile pleine -->
+                      <%= button_to favorites_path(user_2_id: @user.id), method: :post, data: {turbo: false} do %>
+                      <i class="fa-solid fa-star text-warning"></i>
+                      <!-- L'étoile pleine si déjà favori -->
+                      <% end %>
+                    <% else %>
+                      <!-- Si l'utilisateur n'a pas encore favorisé ce profil, on affiche l'étoile vide -->
+                      <%= button_to favorites_path(user_2_id: @user.id), method: :post, data: {turbo: false} do%>
+                      <i class="fa-regular fa-star"></i>
+                      <!-- L'étoile vide si non favori -->
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="name-and-mail">
                   <h3 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h3>
                   <div class="mail-and-pic">
                     <div>
@@ -39,24 +59,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="profile-icons-box">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newChatroomModal">
-                  <i class="fa-regular fa-message"></i>
-                </button>
-                <% if current_user.favorites.exists?(user_2_id: @user.id) %>
-                  <!-- Si l'utilisateur a déjà favorisé ce profil, on affiche l'étoile pleine -->
-                  <%= button_to favorites_path(user_2_id: @user.id), method: :post, data: {turbo: false} do %>
-                  <i class="fa-solid fa-star text-warning"></i>
-                  <!-- L'étoile pleine si déjà favori -->
-                  <% end %>
-                <% else %>
-                  <!-- Si l'utilisateur n'a pas encore favorisé ce profil, on affiche l'étoile vide -->
-                  <%= button_to favorites_path(user_2_id: @user.id), method: :post, data: {turbo: false} do%>
-                  <i class="fa-regular fa-star"></i>
-                  <!-- L'étoile vide si non favori -->
-                  <% end %>
-                <% end %>
               </div>
               <div class="separator"></div>
               <div class="profile-experiences">

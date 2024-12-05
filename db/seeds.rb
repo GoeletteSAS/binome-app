@@ -362,8 +362,8 @@ Search.create!(
 # # Define juliette and pascal variables
 # juliette = User.find_by(username: "juju")
 # pascal = User.find_by(username: "Pascal92")
-# virginie = User.find_by(username: "Virginie73")
-# sophie = User.find_by(username: "Sophie98")
+# # virginie = User.find_by(username: "Virginie73")
+# # sophie = User.find_by(username: "Sophie98")
 
 # # Chatroom 1: Juliette and Pascal
 # chatroom1 = Chatroom.create!(user_1: juliette, user_2: pascal)
@@ -391,4 +391,4 @@ Search.create!(
 
 # puts "Created 2 chatrooms with conversations for Juliette"
 
-# puts 'Seed complete! 🎉'
+puts 'Seed complete! 🎉'

@@ -4,6 +4,39 @@
   flex-direction: column;
 }
 
+.chatroom-info {
+  display: flex;
+  padding: 0.4rem;
+  border: 0.5px solid $white-primary;
+  border-radius: 4px;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.chatroom-info:hover {
+  background-color: $gray-secondary;
+  box-shadow: inset 2px 2px 0px $light-shadow-secondary;
+  color: white;
+}
+
+.chatroom-info.active {
+  background-color: $gray-secondary;
+  box-shadow: inset 2px 2px 0px $light-shadow-secondary;
+  color: white;
+}
+
+.chatroom-info-without-chevron {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.4rem;
+}
+
+.name-and-notif {
+  display: flex;
+  flex-direction: column;
+}
 
 .chatroom-header {
   padding: 1rem;
@@ -89,10 +122,10 @@
 .chatrooms-list {
   border-right: 1px solid #dee2e6;
   height: calc(100vh - 200px);
+  padding-inline: 0;
 }
 
 .chatroom-preview {
-  padding: 10px;
   border-bottom: 1px solid #dee2e6;
   transition: background-color 0.2s;
 }

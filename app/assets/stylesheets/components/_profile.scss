@@ -20,7 +20,8 @@
   border-radius: 4px;
   height: 100%;
   // box-shadow: 0 4px 6px $box-shadow-primary;
-  box-shadow: 4px 4px 0px 0px $mid-shadow-primary;
+  //box-shadow: 4px 4px 0px 0px $mid-shadow-primary;
+  box-shadow: 0px 4px 10px $light-shadow-secondary;
   transition: transform 0.2s ease;
 }
 
@@ -55,12 +56,6 @@
   width: 100%;
 }
 
-.profile-subcard img {
-  border-radius: 50%;
-  object-fit: cover;
-  width: 4rem;
-  height: 4rem;
-}
 
 .profile-info {
   display : flex;
@@ -134,7 +129,8 @@
   color: $black-secondary;
   // border-radius: 8px;
   padding: 0.8rem;
-  box-shadow: 0 2px 4px $box-shadow-primary;
+  box-shadow: 0px 4px 10px $light-shadow-primary;
+  //box-shadow: 0 2px 4px $box-shadow-primary;
   // box-shadow: 6px 6px 0px 0px $gray-secondary;
   // display: grid;
   // grid-template-rows: repeat(3, 1.3rem);

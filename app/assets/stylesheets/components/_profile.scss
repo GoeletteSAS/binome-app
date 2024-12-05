@@ -206,6 +206,9 @@
   flex-grow: 1;
   max-width: 100%;
   border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .profile-details-experiences-cards {

@@ -71,6 +71,11 @@
           <% user.experiences.where(line_of_work: search.line_of_work, field: search.field).each do |experience| %>
             <div class="profile-details-experiences-cards">
               <div class="profile-details-experience-item">
+                <i class="fa-regular fa-calendar"></i>
+                <p><strong> du </strong> <%= experience.start_date %></p>
+                <p><strong> au </strong> <%= experience.start_date %></p>
+              </div>
+              <div class="profile-details-experience-item">
                 <i class="fas fa-briefcase"></i>
                 <p><strong>Entreprise</strong> <%= experience.firm %></p>
               </div>

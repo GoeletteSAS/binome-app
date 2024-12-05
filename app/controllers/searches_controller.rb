@@ -79,7 +79,7 @@ class SearchesController < ApplicationController
   private
 
   def search_params
-    params.require(:search).permit(:user_id, :experience_id, :line_of_work, :field, :address, :is_offering)
+    params.require(:search).permit(:user_id, :experience_id, :line_of_work, :field, :address, :is_offering, :quotite_de_travail)
   end
 
 end

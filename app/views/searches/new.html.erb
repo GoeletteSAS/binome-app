@@ -11,7 +11,7 @@
                           input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
                           wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_ACCESS_TOKEN"]}}%>
                           
-          <%= f.input :quotite_de_travail, label: "Quelle quotité de travail souhaitez-vous travailler ? (en %)", input_html: { class: 'form-control', type: 'number', min: 0, max: 100, step: 10 } %>
+          <%= f.input :quotite_de_travail, label: "Combien de temps souhaitez-vous travailler ? (en %)", input_html: { class: 'form-control', type: 'number', min: 0, max: 100, step: 10 } %>
 
         <div class="text-center mt-4">
           <%= f.submit 'Lancer ma recherche', id: 'bright', class: 'btn btn-primary btn-lg px-4' %>

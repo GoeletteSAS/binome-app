@@ -10,8 +10,7 @@ class ChatroomsController < ApplicationController
     @message = Message.new
     @users = User.where.not(id: current_user.id)
     @chatrooms = Chatroom.where("user_1_id = :user_id OR user_2_id = :user_id", user_id: current_user.id)
-    @unread_messages = Chatroom.find(params[:id]).messages.where(sender: current_user, reading: false).update_all(reading: true)
-    # raise
+    @chatroom.messages.where(sender: @chatroom.other_user(current_user), reading: false).update_all(reading: true)
   end
 
   def new

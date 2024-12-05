@@ -5,13 +5,13 @@
     <div class="card-header">
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
-          <a class="nav-link active" href="#"><i class="fas fa-inbox"></i> Inbox</a>
+          <a class="nav-link" href="dashboard_chatrooms"><i class="fas fa-inbox"></i> Inbox</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="fas fa-search"></i> Search messages</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="dashboard_chatrooms_unread"><i class="fas fa-envelope"></i> Unread - <%= @number%></a>
+          <a class="nav-link active" href="#"><i class="fas fa-envelope"></i> Unread - <%= @number%></a>
         </li>
       </ul>
     </div>
@@ -23,6 +23,7 @@
           <ul class="list-group">
             <% if @chatrooms.present? %>
               <% @chatrooms.each do |chatroom| %>
+              <% if chatroom.messages.where(sender: chatroom.other_user(current_user), reading: false).count > 0%>
                 <%= link_to chatroom_path(chatroom), data: { turbo_frame: "chatroom_content" } do %>
                   <div class="chatroom-preview">
                     <div class="avatar">
@@ -41,9 +42,12 @@
                     </div>
                   </div>
                 <% end %>
+              <% else %>
+                <li class="list-group-item">All Messages are reading</li>
+              <% end %>
               <% end %>
             <% else %>
-              <li class="list-group-item">No chatrooms available</li>
+              <li class="list-group-item">No chatroom available</li>
             <% end %>
           </ul>
         </div>

@@ -15,8 +15,8 @@
       <li class="nav-item">
         <%= link_to "Carnet d'adresses", dashboard_favorites_path, class: "nav-link #{'active' if action_name == 'dashboard_favorites'}" %>
       </li>
-      <li class="nav-item" data-notifications-sms={}>
-        <%= link_to "Messages", dashboard_chatrooms_path, class: "nav-link #{'active' if action_name == 'dashboard_chatrooms'}" %>
+      <li class="nav-item">
+        <%= link_to "Messages - #{@number}", dashboard_chatrooms_path, class: "nav-link #{'active' if action_name == 'dashboard_chatrooms'}" %>
       </li>
       <li class="nav-item">
         <%= link_to "Mon profil", dashboard_profile_path, class: "nav-link #{'active' if action_name == 'dashboard_profile'}" %>

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/dashboard_favorites', to: 'pages#dashboard_favorites', as: :dashboard_favorites
   get '/dashboard_profile', to: 'pages#dashboard_profile', as: :dashboard_profile
   get '/dashboard_chatrooms', to: 'pages#dashboard_chatrooms', as: :dashboard_chatrooms
+  get '/dashboard_chatrooms_unread', to: 'pages#dashboard_chatrooms_unread', as: :dashboard_chatrooms_unread
 
   # Defines the root path route ("/")
 end

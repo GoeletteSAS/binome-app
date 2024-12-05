@@ -351,13 +351,13 @@ Experience.create!(
 #   is_offering: false,
 # )
 
-Search.create!(
-  user: User.last,
-  address: "Paris, France",
-  field: "Textile, Habillement & Chaussure",
-  line_of_work: "Marketing",
-  is_offering: false,
-)
+# Search.create!(
+#   user: User.last,
+#   address: "Paris, France",
+#   field: "Textile, Habillement & Chaussure",
+#   line_of_work: "Marketing",
+#   is_offering: false,
+# )
 
 # # Define juliette and pascal variables
 # juliette = User.find_by(username: "juju")

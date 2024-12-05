@@ -63,6 +63,9 @@
 
     <div class="profile-details-body">
       </div>
+      <div class="description-card">
+        <p><%= user.description %></p>
+      </div>
       <div class="separator"></div>
         <div class="profile-details-experiences">
           <% user.experiences.where(line_of_work: search.line_of_work, field: search.field).each do |experience| %>

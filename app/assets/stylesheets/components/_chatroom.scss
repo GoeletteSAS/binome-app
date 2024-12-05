@@ -4,6 +4,12 @@
   flex-direction: column;
 }
 
+.chatroom-info {
+  display: flex;
+  padding: 0.8rem;
+  border: 0.2px solid $white-primary;
+  background-color: white;
+}
 
 .chatroom-header {
   padding: 1rem;
@@ -92,7 +98,6 @@
 }
 
 .chatroom-preview {
-  padding: 10px;
   border-bottom: 1px solid #dee2e6;
   transition: background-color 0.2s;
 }

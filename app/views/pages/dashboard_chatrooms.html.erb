@@ -16,13 +16,17 @@
           <h4>Your Chatrooms</h4>
           <ul class="list-group">
             <% if @chatrooms.present? %>
-              <% @chatrooms.each do |chatroom| %>
-                <%= link_to chatroom_path(chatroom), data: { turbo_frame: "chatroom_content" } do %>
-                  <div class="chatroom-preview">
-                    <div class="avatar">
-                      <%= image_tag "", class: "img-thumbnail" %>
-                    </div>
+              <div class="chatroom-preview">
+                <% @chatrooms.each do |chatroom| %>
+                  <%= link_to chatroom_path(chatroom), data: { turbo_frame: "chatroom_content" } do %>
                     <div class="chatroom-info">
+                      <div class="avatar">
+                        <% if chatroom.other_user(current_user).photo.attached? %>
+                          <%= cl_image_tag chatroom.other_user(current_user).photo.key, crop: :fill, class: "img-fluid" %>
+                        <% else %>
+                          <%= image_tag "default-user.svg", crop: :fill, alt: "default-profile-photo"%>
+                        <% end %>
+                      </div>
                       <h5><%= chatroom.other_user(current_user).first_name %> <%= chatroom.other_user(current_user).last_name %></h5>
                       <% if chatroom.messages.any? %>
                         <p class="last-message">

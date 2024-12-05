@@ -60,7 +60,7 @@ experiences << Experience.create!(
   latitude: 45.764043,
   longitude: 4.835659,
   firm: "Camaieu",
-  post_name: "Chef de Produit Marketing"
+  postname: "Chef de Produit Marketing"
 )
 experiences << Experience.create!(
   user: users.last,
@@ -73,7 +73,7 @@ experiences << Experience.create!(
   latitude: 48.856613,
   longitude: 2.352222,
   firm: "Nike",
-  post_name: "Responsable E-commerce"
+  postname: "Responsable E-commerce"
 )
 experiences << Experience.create!(
   user: users.last,
@@ -86,7 +86,7 @@ experiences << Experience.create!(
   latitude: 48.856613,
   longitude: 2.352222,
   firm: "Zara",
-  post_name: "Responsable Marketing Digital"
+  postname: "Responsable Marketing Digital"
 )
 
 searches << Search.create!(
@@ -125,7 +125,7 @@ experiences << Experience.create!(
   latitude: 45.764043,
   longitude: 4.835659,
   firm: "H&M",
-  post_name: "Chargée de collections tendance"
+  postname: "Chargée de collections tendance"
 )
 
 experiences << Experience.create!(
@@ -139,7 +139,7 @@ experiences << Experience.create!(
   latitude: 48.856613,
   longitude: 2.352222,
   firm: "WoolOvers",
-  post_name: "Chargée de Marketing"
+  postname: "Chargée de Marketing"
 )
 experiences << Experience.create!(
   user: users.last,
@@ -152,7 +152,7 @@ experiences << Experience.create!(
   latitude: 48.856613,
   longitude: 2.352222,
   firm: "WoolOvers",
-  post_name: "Chef de Produit Marketing"
+  postname: "Chef de Produit Marketing"
 )
 
 searches << Search.create!(
@@ -190,7 +190,7 @@ experiences << Experience.create!(
   latitude: 44.837789,
   longitude: -0.57918,
   firm: "Uniqlo",
-  post_name: "Responsable Commercial"
+  postname: "Responsable Commercial"
 )
 
 searches << Search.create!(
@@ -228,7 +228,7 @@ experiences << Experience.create!(
   latitude: 44.837789,
   longitude: -0.57918,
   firm: "Uniqlo",
-  post_name: "Responsable Commercial"
+  postname: "Responsable Commercial"
 )
 
 searches << Search.create!(
@@ -268,7 +268,7 @@ experiences << Experience.create!(
   latitude: 45.764043,
   longitude: 4.835659,
   firm: "Patagonia",
-  post_name: "Chargée Acquisition"
+  postname: "Chargée Acquisition"
 )
 
 experiences << Experience.create!(
@@ -282,7 +282,7 @@ experiences << Experience.create!(
   latitude: 48.856613,
   longitude: 2.352222,
   firm: "Jonak",
-  post_name: "Responsable Acquisition"
+  postname: "Responsable Acquisition"
 )
 
 searches << Search.create!(
@@ -321,7 +321,7 @@ experiences << Experience.create!(
   latitude: 45.764043,
   longitude: 4.835659,
   firm: "Nike",
-  post_name: "Analyste Marketing"
+  postname: "Analyste Marketing"
 )
 
 experiences << Experience.create!(
@@ -335,7 +335,7 @@ experiences << Experience.create!(
   latitude: 45.764043,
   longitude: 4.835659,
   firm: "Zara",
-  post_name: "Responsable Marketing"
+  postname: "Responsable Marketing"
 )
 
 experiences << Experience.create!(
@@ -349,7 +349,7 @@ experiences << Experience.create!(
   latitude: 48.856613,
   longitude: 2.352222,
   firm: "Veja",
-  post_name: "Directrice Marketing"
+  postname: "Directrice Marketing"
 )
 
 searches << Search.create!(
@@ -387,7 +387,7 @@ experiences << Experience.create!(
   latitude: 44.837789,
   longitude: -0.57918,
   firm: "Uniqlo",
-  post_name: "Responsable Commercial"
+  postname: "Responsable Commercial"
 )
 
 searches << Search.create!(
@@ -425,7 +425,7 @@ experiences << Experience.create!(
   latitude: 44.837789,
   longitude: -0.57918,
   firm: "Uniqlo",
-  post_name: "Commercial"
+  postname: "Commercial"
 )
 
 searches << Search.create!(

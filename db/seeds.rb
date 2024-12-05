@@ -38,10 +38,11 @@ puts "creating Pascal"
 users << User.create!(
   first_name: "Pascal",
   last_name: "Auribaud",
-  username: "Pascal92",
+  username: "Pascal82",
   email: "pascal@hotmail.fr",
   password: "password",
-  date_of_birth: Date.new(1992, 8, 25)
+  date_of_birth: Date.new(1982, 8, 25),
+  description: "Expert en marketing digital dans le secteur de la mode, je pilote les stratégies e-commerce et social media chez Zara. Je suis passionné par l'innovation et les nouvelles tendances du retail."
 )
 
 photo = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/c_thumb,w_200,g_face/v1733134021/istockphoto-498256634-612x612_wnckma.jpg").open
@@ -50,14 +51,42 @@ User.last.save
 
 experiences << Experience.create!(
   user: users.last,
+  start_date: Date.new(2016, 6, 15),
+  end_date: Date.new(2020, 8, 20),
+  is_current: false,
+  line_of_work: "Marketing",
+  field: "Textile, Habillement & Chaussure",
+  address: "Lyon, France",
+  latitude: 45.764043,
+  longitude: 4.835659,
+  firm: "Camaieu",
+  post_name: "Chef de Produit Marketing"
+)
+experiences << Experience.create!(
+  user: users.last,
   start_date: Date.new(2020, 9, 1),
+  end_date: Date.new(2022, 8, 31),
+  is_current: false,
+  line_of_work: "Marketing",
+  field: "Textile, Habillement & Chaussure",
+  address: "Paris, France",
+  latitude: 48.856613,
+  longitude: 2.352222,
+  firm: "Nike",
+  post_name: "Responsable E-commerce"
+)
+experiences << Experience.create!(
+  user: users.last,
+  start_date: Date.new(2022, 9, 1),
   end_date: nil,
   is_current: true,
   line_of_work: "Marketing",
   field: "Textile, Habillement & Chaussure",
   address: "Paris, France",
   latitude: 48.856613,
-  longitude: 2.352222
+  longitude: 2.352222,
+  firm: "Zara",
+  post_name: "Responsable Marketing Digital"
 )
 
 searches << Search.create!(
@@ -76,23 +105,54 @@ users << User.create!(
   username: "Virginie73",
   email: "Virginie@holiday.fr",
   password: "password",
-  date_of_birth: Date.new(1973, 12, 7)
+  date_of_birth: Date.new(1973, 12, 7),
+  description: "Actuellement Chef de produit marketing chez WoolOvers avec 15 ans d'expérience dans le textile. Je suis spécialisée dans le développement de collections et l'analyse des tendances mode."
 )
 
 photo = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/c_thumb,w_200,g_face/v1732812152/rsbcsegxvjbqumd5vuvt.png").open
 User.last.photo.attach(io: photo, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")
 User.last.save
 
+
 experiences << Experience.create!(
   user: users.last,
-  start_date: Date.new(2019, 3, 15),
+  start_date: Date.new(2009, 5, 1),
+  end_date: Date.new(2019, 3, 14),
+  is_current: false,
+  line_of_work: "Marketing",
+  field: "Textile, Habillement & Chaussure",
+  address: "Lyon, France",
+  latitude: 45.764043,
+  longitude: 4.835659,
+  firm: "H&M",
+  post_name: "Chargée de collections tendance"
+)
+
+experiences << Experience.create!(
+  user: users.last,
+  start_date: Date.new(2019, 4, 20),
+  end_date: Date.new(2022, 1, 1),
+  is_current: false,
+  line_of_work: "Marketing",
+  field: "Textile, Habillement & Chaussure",
+  address: "Paris, France",
+  latitude: 48.856613,
+  longitude: 2.352222,
+  firm: "WoolOvers",
+  post_name: "Chargée de Marketing"
+)
+experiences << Experience.create!(
+  user: users.last,
+  start_date: Date.new(2022, 3, 15),
   end_date: nil,
   is_current: true,
   line_of_work: "Marketing",
   field: "Textile, Habillement & Chaussure",
   address: "Paris, France",
-  latitude: 45.764043,
-  longitude: 4.835659
+  latitude: 48.856613,
+  longitude: 2.352222,
+  firm: "WoolOvers",
+  post_name: "Chef de Produit Marketing"
 )
 
 searches << Search.create!(
@@ -128,7 +188,9 @@ experiences << Experience.create!(
   field: "Textile, Habillement & Chaussure",
   address: "Paris, France",
   latitude: 44.837789,
-  longitude: -0.57918
+  longitude: -0.57918,
+  firm: "Uniqlo",
+  post_name: "Responsable Commercial"
 )
 
 searches << Search.create!(
@@ -164,7 +226,9 @@ experiences << Experience.create!(
   field: "Textile, Habillement & Chaussure",
   address: "Paris, France",
   latitude: 44.837789,
-  longitude: -0.57918
+  longitude: -0.57918,
+  firm: "Uniqlo",
+  post_name: "Responsable Commercial"
 )
 
 searches << Search.create!(
@@ -184,23 +248,41 @@ users << User.create!(
   username: "StephaneJ",
   email: "Stephane@wanadoo.fr",
   password: "password",
-  date_of_birth: Date.new(1970, 8, 25)
+  date_of_birth: Date.new(1970, 8, 25),
+  description: "Responsable Acquisition chez Jonak depuis 7 ans, expert en stratégies marketing et développement de la marque dans l'industrie du textile. J'adore l'analyse de données digitales."
 )
 
 photo = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/c_thumb,w_200,g_face/v1733134021/St%C3%A9phane_qxhsn4.jpg").open
 User.last.photo.attach(io: photo, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")
 User.last.save
 
+
 experiences << Experience.create!(
   user: users.last,
-  start_date: Date.new(2003, 9, 1),
+  start_date: Date.new(2011, 1, 1),
+  end_date: Date.new(2015, 12, 31),
+  is_current: false,
+  line_of_work: "Marketing",
+  field: "Textile, Habillement & Chaussure",
+  address: "Lyon, France",
+  latitude: 45.764043,
+  longitude: 4.835659,
+  firm: "Patagonia",
+  post_name: "Chargée Acquisition"
+)
+
+experiences << Experience.create!(
+  user: users.last,
+  start_date: Date.new(2017, 10, 1),
   end_date: nil,
   is_current: true,
   line_of_work: "Marketing",
   field: "Textile, Habillement & Chaussure",
   address: "Paris, France",
   latitude: 48.856613,
-  longitude: 2.352222
+  longitude: 2.352222,
+  firm: "Jonak",
+  post_name: "Responsable Acquisition"
 )
 
 searches << Search.create!(
@@ -220,7 +302,8 @@ users << User.create!(
   username: "Paulinette",
   email: "pauline@gmail.com",
   password: "password",
-  date_of_birth: Date.new(1985, 12, 7)
+  date_of_birth: Date.new(1985, 12, 7),
+  description: "Directrice Marketing chez Veja, experte en développement produit et marketing textile. Passionnée par la mode éthique et les nouvelles tendances du secteur."
 )
 
 photo = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/c_thumb,w_200,g_face/v1733134021/1000_F_105632490_xr18ylLjgVkBhgwu7MefPDN7PjmyAqSy_dhubdi.jpg").open
@@ -230,13 +313,43 @@ User.last.save
 experiences << Experience.create!(
   user: users.last,
   start_date: Date.new(2016, 3, 15),
+  end_date: Date.new(2018, 12, 31),
+  is_current: false,
+  line_of_work: "Marketing",
+  field: "Textile, Habillement & Chaussure",
+  address: "Paris, France",
+  latitude: 45.764043,
+  longitude: 4.835659,
+  firm: "Nike",
+  post_name: "Analyste Marketing"
+)
+
+experiences << Experience.create!(
+  user: users.last,
+  start_date: Date.new(2019, 2, 1),
+  end_date: Date.new(2021, 12, 31),
+  is_current: false,
+  line_of_work: "Marketing",
+  field: "Textile, Habillement & Chaussure",
+  address: "Lyon, France",
+  latitude: 45.764043,
+  longitude: 4.835659,
+  firm: "Zara",
+  post_name: "Responsable Marketing"
+)
+
+experiences << Experience.create!(
+  user: users.last,
+  start_date: Date.new(2022, 1, 1),
   end_date: nil,
   is_current: true,
   line_of_work: "Marketing",
   field: "Textile, Habillement & Chaussure",
   address: "Paris, France",
-  latitude: 45.764043,
-  longitude: 4.835659
+  latitude: 48.856613,
+  longitude: 2.352222,
+  firm: "Veja",
+  post_name: "Directrice Marketing"
 )
 
 searches << Search.create!(
@@ -272,7 +385,9 @@ experiences << Experience.create!(
   field: "Textile, Habillement & Chaussure",
   address: "Paris, France",
   latitude: 44.837789,
-  longitude: -0.57918
+  longitude: -0.57918,
+  firm: "Uniqlo",
+  post_name: "Responsable Commercial"
 )
 
 searches << Search.create!(
@@ -308,7 +423,9 @@ experiences << Experience.create!(
   field: "Textile, Habillement & Chaussure",
   address: "Paris, France",
   latitude: 44.837789,
-  longitude: -0.57918
+  longitude: -0.57918,
+  firm: "Uniqlo",
+  post_name: "Commercial"
 )
 
 searches << Search.create!(
@@ -328,7 +445,7 @@ users << User.create!(
   username: "juju",
   email: "juliette.voilatipa@yahoo.fr",
   password: "password",
-  date_of_birth: "1990-09-13"
+  date_of_birth: "1990-09-13",
 )
 photojuliette = URI.parse("https://res.cloudinary.com/deti40pff/image/upload/c_thumb,w_200,g_face/v1732812190/k77ntqucqxeverih1qlr.jpg").open
 User.last.photo.attach(io: photojuliette, filename: "#{User.last.first_name}-#{User.last.last_name}-photo.jpg", content_type: "image/jpg")

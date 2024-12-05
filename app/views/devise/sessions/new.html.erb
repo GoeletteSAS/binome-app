@@ -15,8 +15,8 @@
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     </div>
 
-    <div class="form-actions btn devise-btn">
-      <%= f.button :submit, "Se connecter" %>
+    <div class="form-actions btn">
+      <%= f.button :submit, "Se connecter", class: "devise-btn" %>
     </div>
   <% end %>
 

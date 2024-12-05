@@ -46,8 +46,13 @@
 
 .profile-subcard {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.5rem;
   height: fit-content;
+}
+
+.name-and-mail {
+  width: 100%;
 }
 
 .profile-subcard img {
@@ -59,17 +64,16 @@
 
 .profile-info {
   display : flex;
-  flex-direction: column;
   gap: 0.5rem;
-  width: 66%;
-  // padding-left: 0.8rem;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .profile-name {
-  display: flex;
+  // display: flex;
   color: $gray-primary;
   font-weight: 600;
-  width: 150px;
+  width: 100%;
   align-items: start;
 }
 
@@ -88,6 +92,7 @@
 
 .profile-icons-box {
   display: flex;
+  align-items: baseline;
   gap: 10px;
 }
 

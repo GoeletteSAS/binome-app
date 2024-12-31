@@ -12,7 +12,7 @@ Rails.application.configure do
     address: 'mail1.netim.hosting', # Adresse du serveur SMTP
     port: '465', # Port du serveur SMTP
     domain: 'jardinfrancais.online', # Votre domaine
-    user_name: ENV['AUTOMATIC_ADDRESS'], # Nom d'utilisateur (pour SendGrid, utilisez 'apikey')
+    username: ENV['AUTOMATIC_ADDRESS'], # Nom d'utilisateur (pour SendGrid, utilisez 'apikey')
     password: ENV['PASSWORD_NO_REPLY'], # Mot de passe (pour SendGrid, utilisez votre clé API)
     authentication: :plain, # Méthode d'authentification
     enable_starttls_auto: true # Activer STARTTLS automatiquement
@@ -89,7 +89,7 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

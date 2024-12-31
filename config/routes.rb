@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'pages/home'
-  devise_for :users
+  devise_for :users, controllers: {
+    confirmations: 'confirmations'
+  }
   root to: "pages#home"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

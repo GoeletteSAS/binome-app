@@ -4,11 +4,12 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.action_mailer.default_url_options = { host: "https://www.jardinfrancais.online" }
-  config.action_mailer.default_options = { from: 'no-reply@jardinfrancais.online' }
+  config.action_mailer.default_options = { from: ENV['AUTOMATIC_ADDRESS'] }
 
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
+    tls: true,
     address: 'mail1.netim.hosting', # Adresse du serveur SMTP
     port: '465', # Port du serveur SMTP
     domain: 'jardinfrancais.online', # Votre domaine

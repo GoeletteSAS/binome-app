@@ -9,7 +9,6 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    tls: true,
     address: 'mail1.netim.hosting', # Adresse du serveur SMTP
     port: '465', # Port du serveur SMTP
     domain: 'www.jardinfrancais.online', # Votre domaine

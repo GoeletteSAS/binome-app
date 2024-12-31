@@ -4,8 +4,19 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.action_mailer.default_url_options = { host: "https://jardinfrancais.online" }
+  config.action_mailer.default_options = { from: 'no-reply@jardinfrancais.online' }
 
-  # Code is not reloaded between requests.
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'mail1.netim.hosting', # Adresse du serveur SMTP
+    port: 465, # Port du serveur SMTP
+    domain: 'jardinfrancais.online', # Votre domaine
+    user_name: 'no-reply@jardinfrancais.online', # Nom d'utilisateur (pour SendGrid, utilisez 'apikey')
+    password: PASSWORD_NO_REPLY, # Mot de passe (pour SendGrid, utilisez votre clé API)
+    authentication: :plain, # Méthode d'authentification
+    enable_starttls_auto: true # Activer STARTTLS automatiquement
+  }
+    # Code is not reloaded between requests.
   config.enable_reloading = false
 
   # Eager load code on boot. This eager loads most of Rails and

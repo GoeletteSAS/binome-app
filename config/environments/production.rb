@@ -3,10 +3,11 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.action_mailer.default_url_options = { host: "https://jardinfrancais.online" }
+  config.action_mailer.default_url_options = { host: "https://www.jardinfrancais.online" }
   config.action_mailer.default_options = { from: 'no-reply@jardinfrancais.online' }
 
   config.action_mailer.delivery_method = :smtp
+  
   config.action_mailer.smtp_settings = {
     address: 'mail1.netim.hosting', # Adresse du serveur SMTP
     port: 465, # Port du serveur SMTP

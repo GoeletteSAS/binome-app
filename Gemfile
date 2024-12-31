@@ -79,3 +79,5 @@ group :test do
 end
 
 gem "tom-select-rails", "~> 2.3"
+
+gem "device", "~> 0.0.0"

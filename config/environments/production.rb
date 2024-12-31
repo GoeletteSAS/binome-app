@@ -12,8 +12,8 @@ Rails.application.configure do
     tls: true,
     address: 'mail1.netim.hosting', # Adresse du serveur SMTP
     port: '465', # Port du serveur SMTP
-    domain: 'jardinfrancais.online', # Votre domaine
-    username: ENV['AUTOMATIC_ADDRESS'], # Nom d'utilisateur (pour SendGrid, utilisez 'apikey')
+    domain: 'www.jardinfrancais.online', # Votre domaine
+    user_name: ENV['AUTOMATIC_ADDRESS'], # Nom d'utilisateur (pour SendGrid, utilisez 'apikey')
     password: ENV['PASSWORD_NO_REPLY'], # Mot de passe (pour SendGrid, utilisez votre clé API)
     authentication: :plain, # Méthode d'authentification
     enable_starttls_auto: true # Activer STARTTLS automatiquement

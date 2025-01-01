@@ -50,12 +50,12 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
     address: 'mail1.netim.hosting', # Adresse du serveur SMTP
-    port: '465', # Port du serveur SMTP
-    domain: 'jardinfrancais.online', # Votre domaine
+    # port: '465', # Port du serveur SMTP
+    # domain: 'jardinfrancais.online', # Votre domaine
     user_name: 'no-reply@jardinfrancais.online', # Nom d'utilisateur (pour SendGrid, utilisez 'apikey')
     password: ENV['PASSWORD_NO_REPLY'], # Mot de passe (pour SendGrid, utilisez votre clé API)
-    authentication: :login, # Méthode d'authentification
-    enable_starttls_auto: true, # Activer STARTTLS automatiquement
+    authentication: :plain, # Méthode d'authentification
+    # enable_starttls_auto: true, # Activer STARTTLS automatiquement
   }
 
   # Print deprecation notices to the Rails logger.

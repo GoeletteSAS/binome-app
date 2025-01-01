@@ -3,19 +3,19 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.action_mailer.default_url_options = { host: "https://www.jardinfrancais.online" }
+  config.action_mailer.default_url_options = { host: "https://jardinfrancais.online" }
   config.action_mailer.default_options = { from: ENV['AUTOMATIC_ADDRESS'] }
 
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
     address: 'mail1.netim.hosting', # Adresse du serveur SMTP
-    port: '465', # Port du serveur SMTP
-    domain: 'www.jardinfrancais.online', # Votre domaine
+    # port: '465', # Port du serveur SMTP
+    # domain: 'www.jardinfrancais.online', # Votre domaine
     user_name: ENV['AUTOMATIC_ADDRESS'], # Nom d'utilisateur (pour SendGrid, utilisez 'apikey')
     password: ENV['PASSWORD_NO_REPLY'], # Mot de passe (pour SendGrid, utilisez votre clé API)
-    authentication: :login, # Méthode d'authentification
-    enable_starttls_auto: true # Activer STARTTLS automatiquement
+    authentication: :plain, # Méthode d'authentification
+    # enable_starttls_auto: true # Activer STARTTLS automatiquement
   }
     # Code is not reloaded between requests.
   config.enable_reloading = false

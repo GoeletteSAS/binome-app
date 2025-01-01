@@ -43,9 +43,19 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: '127.0.0.1',
+  #   port: '1025'
+  # }
+
   config.action_mailer.smtp_settings = {
-    address: '127.0.0.1',
-    port: '1025'
+    address: 'mail1.netim.hosting', # Adresse du serveur SMTP
+    port: '465', # Port du serveur SMTP
+    domain: 'jardinfrancais.online', # Votre domaine
+    user_name: 'no-reply@jardinfrancais.online', # Nom d'utilisateur (pour SendGrid, utilisez 'apikey')
+    password: ENV['PASSWORD_NO_REPLY'], # Mot de passe (pour SendGrid, utilisez votre clé API)
+    authentication: :login, # Méthode d'authentification
+    enable_starttls_auto: true, # Activer STARTTLS automatiquement
   }
 
   # Print deprecation notices to the Rails logger.

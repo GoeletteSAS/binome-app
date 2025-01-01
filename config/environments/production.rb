@@ -14,7 +14,7 @@ Rails.application.configure do
     domain: 'www.jardinfrancais.online', # Votre domaine
     user_name: ENV['AUTOMATIC_ADDRESS'], # Nom d'utilisateur (pour SendGrid, utilisez 'apikey')
     password: ENV['PASSWORD_NO_REPLY'], # Mot de passe (pour SendGrid, utilisez votre clé API)
-    authentication: :plain, # Méthode d'authentification
+    authentication: :login, # Méthode d'authentification
     enable_starttls_auto: true # Activer STARTTLS automatiquement
   }
     # Code is not reloaded between requests.

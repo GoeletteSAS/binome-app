@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'pages/home'
   devise_for :users, controllers: {
-    confirmations: 'confirmations'
+    confirmations: 'users/confirmations',
+    sessions: 'users/sessions',
+
   }
   root to: "pages#home"
 

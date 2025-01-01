@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     confirmations: 'users/confirmations',
     sessions: 'users/sessions',
-
+    registrations: 'users/registrations'
   }
   root to: "pages#home"
 

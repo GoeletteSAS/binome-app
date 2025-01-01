@@ -6,17 +6,29 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "https://jardinfrancais.online" }
   config.action_mailer.default_options = { from: ENV['AUTOMATIC_ADDRESS'] }
 
-  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.delivery_method = :smtp
 
+  # config.action_mailer.smtp_settings = {
+  #   address: 'mail1.netim.hosting', # Adresse du serveur SMTP
+  #   # port: '465', # Port du serveur SMTP
+  #   # domain: 'www.jardinfrancais.online', # Votre domaine
+  #   user_name: ENV['AUTOMATIC_ADDRESS'], # Nom d'utilisateur (pour SendGrid, utilisez 'apikey')
+  #   password: ENV['PASSWORD_NO_REPLY'], # Mot de passe (pour SendGrid, utilisez votre clé API)
+  #   authentication: :plain, # Méthode d'authentification
+  #   # enable_starttls_auto: true # Activer STARTTLS automatiquement
+  # }
+
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'mail1.netim.hosting', # Adresse du serveur SMTP
-    # port: '465', # Port du serveur SMTP
-    # domain: 'www.jardinfrancais.online', # Votre domaine
-    user_name: ENV['AUTOMATIC_ADDRESS'], # Nom d'utilisateur (pour SendGrid, utilisez 'apikey')
-    password: ENV['PASSWORD_NO_REPLY'], # Mot de passe (pour SendGrid, utilisez votre clé API)
+    address: 'smtp.office365.com', # Adresse du serveur SMTP
+    port: 587, # Port du serveur SMTP
+    domain: 'hotmail.fr', # Votre domaine
+    user_name: ENV['HOTMAIL_USERNAME'], # Nom d'utilisateur (votre adresse email Hotmail complète)
+    password: ENV['HOTMAIL_PASSWORD'], # Mot de passe
     authentication: :plain, # Méthode d'authentification
-    # enable_starttls_auto: true # Activer STARTTLS automatiquement
+    enable_starttls_auto: true # Activer STARTTLS automatiquement
   }
+
     # Code is not reloaded between requests.
   config.enable_reloading = false
 

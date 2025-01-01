@@ -8,6 +8,6 @@ class UserMailer < ApplicationMailer
   def new_user_email
     @greeting = "Hi"
 
-    mail to: "to@example.org"
+    mail to: params[user[email]]
   end
 end

@@ -48,6 +48,16 @@ Rails.application.configure do
   #   port: '1025'
   # }
 
+  # config.action_mailer.smtp_settings = {
+  #   address: 'mail1.netim.hosting', # Adresse du serveur SMTP
+  #   # port: '465', # Port du serveur SMTP
+  #   # domain: 'jardinfrancais.online', # Votre domaine
+  #   user_name: 'no-reply@jardinfrancais.online', # Nom d'utilisateur (pour SendGrid, utilisez 'apikey')
+  #   password: ENV['PASSWORD_NO_REPLY'], # Mot de passe (pour SendGrid, utilisez votre clé API)
+  #   authentication: :plain, # Méthode d'authentification
+  #   # enable_starttls_auto: true, # Activer STARTTLS automatiquement
+  # }
+
   config.action_mailer.smtp_settings = {
     address: 'mail1.netim.hosting', # Adresse du serveur SMTP
     # port: '465', # Port du serveur SMTP
